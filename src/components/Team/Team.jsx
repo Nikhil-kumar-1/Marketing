@@ -87,43 +87,44 @@ const Team = () => {
   ];
 
   const teamMembers = [
-    {
-      name: "Rahul Sharma",
-      role: "Lead Developer",
-      expertise: "Full Stack | React | Node.js",
-      img: "/team/member1.jpg"
-    },
-    {
-      name: "Priya Patel",
-      role: "UX/UI Designer",
-      expertise: "Figma | User Research | Prototyping",
-      img: "/team/member2.jpg"
-    },
-    {
-      name: "Amit Kumar",
-      role: "Digital Marketer",
-      expertise: "SEO | PPC | Social Media",
-      img: "/team/member3.jpg"
-    },
-    {
-      name: "Neha Gupta",
-      role: "Content Strategist",
-      expertise: "Copywriting | SEO Content | Brand Voice",
-      img: "/team/member4.jpg"
-    },
-    {
-      name: "Sandeep Mishra",
-      role: "DevOps Engineer",
-      expertise: "AWS | Docker | CI/CD",
-      img: "/team/member5.jpg"
-    },
-    {
-      name: "Anjali Joshi",
-      role: "Project Manager",
-      expertise: "Agile | Scrum | Client Relations",
-      img: "/team/member6.jpg"
-    }
-  ];
+  {
+    name: "Rahul Kumar",
+    role: "Graphic Designer",
+    expertise: "Figma | Photoshop | Illustrator",
+    img: "https://images.unsplash.com/photo-1574722772849-7b249c18a2fd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGJveXN8ZW58MHx8MHx8fDA%3D"
+  },
+  {
+    name: "Sakshi Thakur",
+    role: "SEO Optimization Specialist",
+    expertise: "SEO | PPC | Google Analytics",
+    img: "https://images.unsplash.com/photo-1631947430066-48c30d57b943?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2lybHxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    name: "Nikhil Kumar",
+    role: "Full Stack Developer",
+    expertise: "React | Node.js | MongoDB",
+    img: "https://images.unsplash.com/photo-1592046285097-6cdf4daf0d69?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Ym95c3xlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    name: "Ankur",
+    role: "Full Stack Developer",
+    expertise: "React | Node.js | MongoDB",
+    img: "https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Ym95c3xlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    name: "Sumit Kumar Singh",
+    role: "Social Media Manager",
+    expertise: "Content Strategy | Engagement | Analytics",
+    img: "https://images.unsplash.com/photo-1546512565-39d4dc75e556?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJveXN8ZW58MHx8MHx8fDA%3D"
+  },
+  {
+    name: "Satyam Kumar",
+    role: "Graphic Designer",
+    expertise: "Figma | Photoshop | Illustrator",
+    img: "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Ym95fGVufDB8fDB8fHww"
+  }
+];
+
 
   return (
     <div className="bg-white">
