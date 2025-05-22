@@ -24,7 +24,7 @@ const PaidMarketingServices = () => {
           name="description" 
           content="Boost your business growth with expert paid marketing services at Adonomics Technologies. Get targeted ads, maximize ROI, and grow your brand effectively." 
         />
-        <meta name="keywords" content="Paid Marketing, PPC, Google Ads, Facebook Ads, Instagram Ads, LinkedIn Ads, SEM, Paid Advertising, Online Advertising, Performance Marketing, Ad Campaigns, Display Ads, Search Ads, Social Media Ads, Remarketing, Conversion Optimization, Adonomics Technologies, Bihar Patna" />
+        <meta name="keywords" content="Paid Marketing, PPC, Google Ads, Facebook Ads, Instagram Ads, LinkedIn Ads, SEM, Paid Advertising, Online Advertising, Performance Marketing, Ad Campaigns, Display Ads, Search Ads, Social Media Ads, Remarketing, Conversion Optimization,Digital Marketing Company, Digital Marketing Services, Adonomics Technologies, Bihar Patna," />
         <meta name="author" content="Adonomics Technologies" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://adonomicstechnologies.com/paid-marketing" />
