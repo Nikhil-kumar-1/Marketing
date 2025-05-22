@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaVideo, FaBrain, FaEdit, FaBullhorn, FaQuestion } from "react-icons/fa";
+import {
+  FaVideo,
+  FaBrain,
+  FaEdit,
+  FaBullhorn,
+  FaQuestion,
+} from "react-icons/fa";
 import { Helmet } from "react-helmet";
 
 const fadeInUp = {
@@ -15,19 +21,23 @@ const fadeInUp = {
 const faqs = [
   {
     question: "What types of videos do you create?",
-    answer: "We create explainer videos, product demos, social media content, testimonial videos, and more based on your goals.",
+    answer:
+      "We create explainer videos, product demos, social media content, testimonial videos, and more based on your goals.",
   },
   {
     question: "Can I provide my own script or voiceover?",
-    answer: "Absolutely! We can work with your script or voiceover or create one from scratch based on your brief.",
+    answer:
+      "Absolutely! We can work with your script or voiceover or create one from scratch based on your brief.",
   },
   {
     question: "Do you handle editing and post-production?",
-    answer: "Yes, our service includes professional editing, sound mixing, and post-production effects.",
+    answer:
+      "Yes, our service includes professional editing, sound mixing, and post-production effects.",
   },
   {
     question: "What is the typical turnaround time?",
-    answer: "Depending on complexity, most video projects are delivered within 7–14 days.",
+    answer:
+      "Depending on complexity, most video projects are delivered within 7–14 days.",
   },
 ];
 
@@ -40,14 +50,20 @@ const VideoContent = () => {
         <title>Video Content Services | Adonomics Technologies</title>
         <meta
           name="keywords"
-          content="Video Content, Video Marketing, Adonomics Technologies, Digital Marketing"
+          content="Video Content, Video Marketing, Adonomics Technologies, Digital Marketing, digital marketing agency
+digital marketing company
+content marketing
+digital marketing services"
         />
         <meta name="author" content="Adonomics Technologies" />
         <meta
           name="description"
           content="Transform your brand's message with our expert video content services. Engage your audience and boost conversions with high-quality videos."
         />
-        <link rel="canonical" href="https://adonomicstechnologies.com/video-content" />
+        <link
+          rel="canonical"
+          href="https://adonomicstechnologies.com/video-content"
+        />
         <meta
           property="og:title"
           content="Video Content Services | Adonomics Technologies"
@@ -77,7 +93,12 @@ const VideoContent = () => {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 opacity-50"></div>
         <div className="relative z-10 text-center px-6 max-w-4xl">
-          <motion.div initial="hidden" animate="visible" custom={0} variants={fadeInUp}>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            custom={0}
+            variants={fadeInUp}
+          >
             <FaVideo className="text-6xl text-white mx-auto mb-6 drop-shadow-lg" />
           </motion.div>
           <motion.h1
@@ -96,7 +117,8 @@ const VideoContent = () => {
             custom={2}
             variants={fadeInUp}
           >
-            From concept to cut — our videos deliver your message with clarity, emotion, and intent.
+            From concept to cut — our videos deliver your message with clarity,
+            emotion, and intent.
           </motion.p>
           <motion.a
             href="/contact"
@@ -144,7 +166,9 @@ const VideoContent = () => {
             variants={fadeInUp}
           >
             <div className="text-blue-600 text-4xl mb-4">{item.icon}</div>
-            <h4 className="text-xl font-bold mb-2 text-blue-800">{item.title}</h4>
+            <h4 className="text-xl font-bold mb-2 text-blue-800">
+              {item.title}
+            </h4>
             <p className="text-gray-600">{item.desc}</p>
           </motion.div>
         ))}
@@ -163,12 +187,36 @@ const VideoContent = () => {
         </motion.h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
-            { icon: "🎬", title: "Professional Production", desc: "Studio-quality production and editing for polished results." },
-            { icon: "📊", title: "Marketing Focus", desc: "Every video is made to boost brand presence and conversions." },
-            { icon: "🎯", title: "Targeted Messaging", desc: "Videos tailored to your audience, voice, and platform." },
-            { icon: "🤝", title: "Collaborative Process", desc: "We involve you at each step to ensure it’s your vision brought to life." },
-            { icon: "📈", title: "Performance Tracking", desc: "We offer insights on how your video is performing across channels." },
-            { icon: "💡", title: "Versatile Formats", desc: "Vertical reels, explainer animations, interviews — all under one roof." },
+            {
+              icon: "🎬",
+              title: "Professional Production",
+              desc: "Studio-quality production and editing for polished results.",
+            },
+            {
+              icon: "📊",
+              title: "Marketing Focus",
+              desc: "Every video is made to boost brand presence and conversions.",
+            },
+            {
+              icon: "🎯",
+              title: "Targeted Messaging",
+              desc: "Videos tailored to your audience, voice, and platform.",
+            },
+            {
+              icon: "🤝",
+              title: "Collaborative Process",
+              desc: "We involve you at each step to ensure it’s your vision brought to life.",
+            },
+            {
+              icon: "📈",
+              title: "Performance Tracking",
+              desc: "We offer insights on how your video is performing across channels.",
+            },
+            {
+              icon: "💡",
+              title: "Versatile Formats",
+              desc: "Vertical reels, explainer animations, interviews — all under one roof.",
+            },
           ].map((item, i) => (
             <motion.div
               key={i}
@@ -179,7 +227,9 @@ const VideoContent = () => {
               variants={fadeInUp}
             >
               <div className="text-4xl mb-4">{item.icon}</div>
-              <h4 className="text-xl font-bold text-blue-700 mb-2">{item.title}</h4>
+              <h4 className="text-xl font-bold text-blue-700 mb-2">
+                {item.title}
+              </h4>
               <p className="text-gray-600">{item.desc}</p>
             </motion.div>
           ))}
@@ -249,7 +299,8 @@ const VideoContent = () => {
           custom={1}
           variants={fadeInUp}
         >
-          Get in touch to explore video content that connects, educates, and converts.
+          Get in touch to explore video content that connects, educates, and
+          converts.
         </motion.p>
         <motion.a
           href="/contact"
