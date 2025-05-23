@@ -58,7 +58,7 @@ digital marketing services"
         <meta name="author" content="Adonomics Technologies" />
         <meta
           name="description"
-          content="Transform your brand's message with our expert video content services. Engage your audience and boost conversions with high-quality videos."
+          content="Discover how Adonomics Technologies uses video content to simplify complex ideas, build trust and drive real engagement. Read more to learn."
         />
         <link
           rel="canonical"
@@ -236,48 +236,153 @@ digital marketing services"
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="mt-24 px-6 max-w-4xl mx-auto">
-        <motion.h2
-          className="text-3xl font-bold text-blue-800 text-center mb-8"
-          initial="hidden"
-          animate="visible"
-          custom={0}
-          variants={fadeInUp}
-        >
-          Frequently Asked Questions
-        </motion.h2>
-        <div className="space-y-4">
-          {faqs.map((faq, i) => (
+      <section className="bg-gradient-to-br from-purple-50 to-purple-100 py-16 px-6 md:px-12 shadow-xl">
+        <div className="max-w-6xl mx-auto ">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold text-blue-800 text-center mb-10"
+          >
+            Video Content: Why It Matters and How Adonomics Technologies Uses It
+            to Drive Impact
+          </motion.h2>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 gap-10 items-center"
+          >
+            <img
+              src="https://images.pexels.com/photos/256417/pexels-photo-256417.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Video Marketing"
+              className="rounded-xl shadow-lg w-full h-auto object-cover"
+            />
+
+            <div className="text-blue-800 text-lg leading-relaxed">
+              <p className="mb-4">
+                In today’s digital-first world, attention is currency—and
+                nothing captures it like video. Whether it's a product demo,
+                explainer, or behind-the-scenes look, video content is one of
+                the most powerful tools in Adonomics Technologies’ marketing
+                toolkit. Why? Because people don’t just want to read about
+                technology—they want to see it in action.
+              </p>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 gap-10 items-center w-full pt-4"
+          >
+            <div className="text-blue-800 text-lg leading-relaxed">
+              <h3 className="text-2xl font-semibold mb-4">
+                Why Video Content Works
+              </h3>
+              <p className="mb-4">
+                Video isn’t just a “nice to have” anymore—it’s essential. Here’s
+                why:
+              </p>
+              <ul className="list-disc list-inside space-y-2 mb-4">
+                <li>
+                  <strong>Retention is higher:</strong> Viewers remember 95% of
+                  a message when they watch it, compared to just 10% when
+                  reading it.
+                </li>
+                <li>
+                  <strong>It builds trust faster:</strong> Faces, voices,
+                  visuals—all of it creates a stronger human connection with
+                  your brand.
+                </li>
+                <li>
+                  <strong>It converts better:</strong> Landing pages with video
+                  can increase conversions by up to 80%.
+                </li>
+                <li>
+                  <strong>It dominates social and search:</strong> Algorithms
+                  prioritize video, meaning better visibility across platforms.
+                </li>
+              </ul>
+              <p>
+                For a tech company like Adonomics, video helps us break down
+                complex topics, showcase real results, and demonstrate the power
+                of our platforms in a way text simply can’t.
+              </p>
+            </div>
+            <img
+              src="https://images.pexels.com/photos/3379934/pexels-photo-3379934.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt=" Video Marketing"
+              className="rounded-xl shadow-lg w-full h-auto object-cover"
+            />
+          </motion.div>
+
+          <div className="mt-12 space-y-8 text-blue-800 text-lg leading-relaxed">
             <motion.div
-              key={i}
-              className="bg-white rounded-lg shadow p-4"
-              initial="hidden"
-              animate="visible"
-              custom={i}
-              variants={fadeInUp}
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
             >
-              <button
-                className="w-full flex items-center justify-between text-left font-semibold text-blue-700"
-                onClick={() => setOpenFAQ(openFAQ === i ? null : i)}
-              >
-                <span>
-                  <FaQuestion className="inline mr-2" />
-                  {faq.question}
-                </span>
-                <span>{openFAQ === i ? "−" : "+"}</span>
-              </button>
-              {openFAQ === i && (
-                <motion.p
-                  className="mt-2 text-gray-600"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                >
-                  {faq.answer}
-                </motion.p>
-              )}
+              <h3 className="text-2xl font-semibold mb-2">
+                  Types of Video Content We Create at Adonomics
+                </h3>
+                <p>We don’t do video just to check a box—we use it strategically. Here’s what we focus on:</p>
+                <ul className="list-disc list-inside space-y-2">
+                  <li>
+                    <strong>Explainer Videos</strong>: We turn product features and concepts into simple, engaging visuals. Whether we’re showcasing our analytics dashboard or how our ad optimization engine works, explainers make it click.
+                  </li>
+                  <li>
+                    <strong>Case Study & Testimonial Videos</strong>: Real clients. Real impact. Nothing builds credibility like a 2-minute clip of a customer talking about how Adonomics helped them boost ROI or streamline campaign management.
+                  </li>
+                  <li>
+                    <strong>Thought Leadership</strong>: We use short video segments to share insights on market trends, AI in advertising, data strategy, and more. These are perfect for LinkedIn or YouTube—quick, smart, and scroll-stopping.
+                  </li>
+                  <li>
+                    <strong>Tutorials & How-Tos</strong>: We support our users with clear walkthroughs of our tools and systems. These videos not only help with onboarding but also reduce support requests by giving users what they need up front.
+                  </li>
+                  <li>
+                    <strong>Culture & Behind-the-Scenes</strong>: People buy from people. Our team, our story, our vibe—all of that matters. So we show it. Culture videos help humanize our brand and attract top-tier talent, too.
+                  </li>
+                </ul>
+              
+              
             </motion.div>
-          ))}
+
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-semibold mb-2">
+                Video as a Growth Lever
+              </h3>
+              <p>
+                We treat video as a core part of our strategy—not just content.
+                Every video is platform-optimized, purpose-driven, and
+                analytics-backed.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-semibold mb-2">Conclusion</h3>
+              <p>
+                Video gives Adonomics the clarity, energy, and visibility to
+                stand out in a competitive market. We don’t just tell people
+                what we do—we show them. And that’s where video wins.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 

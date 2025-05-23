@@ -141,68 +141,127 @@ const BlogWriting = () => {
         ))}
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="mt-24 px-6 max-w-6xl mx-auto">
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center text-purple-800 mb-10"
-          initial="hidden"
-          animate="visible"
-          custom={0}
-          variants={fadeInUp}
+      <section className="bg-gradient-to-br from-white via-purple-50 to-white py-16 px-6 md:px-12 shadow-xl rounded-3xl max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
         >
-          Why Choose Our Blog Writing Services?
-        </motion.h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Tailored Content",
-              desc: "Each blog is uniquely crafted to align with your niche, brand tone, and target audience.",
-              icon: "🧵",
-            },
-            {
-              title: "SEO Expertise",
-              desc: "Our content ranks higher thanks to keyword research, meta structuring, and technical SEO.",
-              icon: "🚀",
-            },
-            {
-              title: "Timely Delivery",
-              desc: "Consistent and reliable delivery ensures your content calendar stays on track.",
-              icon: "⏱️",
-            },
-            {
-              title: "Unlimited Revisions",
-              desc: "We refine your blogs until you're fully satisfied. No compromise on quality.",
-              icon: "🔄",
-            },
-            {
-              title: "Niche Versatility",
-              desc: "Tech, health, finance, lifestyle — we cover it all with subject matter expertise.",
-              icon: "📚",
-            },
-            {
-              title: "Engagement Focused",
-              desc: "Each article is crafted to retain attention and encourage user interaction.",
-              icon: "💬",
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              className="bg-white p-6 rounded-xl shadow-md text-center"
-              initial="hidden"
-              animate="visible"
-              custom={i}
-              variants={fadeInUp}
-            >
-              <div className="text-4xl mb-4">{item.icon}</div>
-              <h4 className="text-xl font-bold text-purple-700 mb-2">
-                {item.title}
-              </h4>
-              <p className="text-gray-600">{item.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+          <h2 className="text-4xl md:text-5xl font-bold text-purple-600 mb-8 text-center">
+            Blog Writing for Adonomics Technologies
+          </h2>
+          <h3 className="text-lg leading-relaxed text-purple-600 text-center max-w-3xl mx-auto mb-12">
+            Turning Expertise Into Impact
+          </h3>
 
+          <div className="grid md:grid-cols-2 gap-10 items-center mb-12">
+            <img
+              src="https://images.pexels.com/photos/2882507/pexels-photo-2882507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt="Blog strategy visual"
+              className="rounded-2xl shadow-lg"
+            />
+            <h5 className="text-lg italic text-purple-600 mb-4">
+              In the fast-moving world of digital innovation, staying visible
+              isn’t just about having the best tech—it’s about showing you
+              understand it better than anyone else. That’s where blog writing
+              comes in. At Adonomics Technologies, our edge isn’t just in
+              building smart solutions—it’s in how we communicate their value.
+              And a well-written blog is one of the most effective tools for
+              doing just that.
+            </h5>
+            <div>
+              <h3 className="text-2xl font-semibold text-purple-600 mb-4">
+                Why Blog Writing Matters for Tech Companies
+              </h3>
+              <p className="text-purple-600 text-md leading-relaxed mb-2">
+                Let’s be honest—technology can be complex. Your audience might
+                be decision-makers, developers, or business owners who don’t
+                have time to decode jargon. A good blog bridges that gap. It
+                turns deep technical know-how into useful, engaging content that
+                informs and builds trust.
+              </p>
+              <p className="text-purple-600 text-md leading-relaxed mb-2">
+                For Adonomics, blog writing isn’t just content—it’s a strategic
+                move. It helps us:
+              </p>
+
+              <ul className="list-disc pl-5 text-purple-600 space-y-1">
+                <li>
+                  Showcases expertise in adtech, analytics, and automation
+                </li>
+                <li>Breaks down industry trends for business understanding</li>
+                <li>Attracts organic traffic via SEO-rich topics</li>
+                <li>Generates leads by solving real problems</li>
+                <li>Builds trust and long-term brand recall</li>
+              </ul>
+            </div>
+              <img src="https://images.pexels.com/photos/5068302/pexels-photo-5068302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Blog writing" 
+                className="rounded-2xl shadow-lg mt-6"
+              />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-10 items-center mb-12">
+            <div>
+              <h3 className="text-2xl font-semibold text-purple-600 mb-4">
+                What Makes a Great Tech Blog?
+              </h3>
+              <ul className="text-purple-600 list-decimal pl-5 space-y-3">
+                <li>
+                  <strong>Relevance:</strong> Every post addresses real client
+                  issues—from ad campaigns to data.
+                </li>
+                <li>
+                  <strong>Depth (Without the Fluff):</strong> Thought leadership
+                  content that’s both deep and readable.
+                </li>
+                <li>
+                  <strong>Actionable Insights:</strong> Readers gain tips,
+                  strategies, or tools they can apply.
+                </li>
+              </ul>
+            </div>
+            <img
+              src="https://images.pexels.com/photos/28347996/pexels-photo-28347996/free-photo-of-laptop-empty-tablet-screen-mockup-top-view-office-desk.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt="Content creation process"
+              className="rounded-2xl shadow-lg"
+            />
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="bg-white  text-purple-600"
+          >
+            <h3 className="text-2xl font-semibold mb-4">
+              Our Blog Strategy at Adonomics
+            </h3>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>
+                <strong>Topic Selection:</strong> Based on real-time trends and
+                SEO intent.
+              </li>
+              <li>
+                <strong>Voice:</strong> Authoritative yet approachable—clear,
+                confident, human.
+              </li>
+              <li>
+                <strong>Value-Driven:</strong> Blogs naturally connect with our
+                tools and services.
+              </li>
+            </ul>
+          </motion.div>
+
+          <p className="text-purple-600 text-md leading-relaxed mt-8 font-semibold italic">
+            Blogging isn’t just part of our marketing—it’s how we lead. Whether
+            it’s machine learning in ad optimization or how-to guides for ROAS
+            improvement, we craft content that informs, solves, and sticks.
+            Because in tech, communication is key.
+          </p>
+        </motion.div>
+      </section>
       {/* Call to Action */}
       <section className="mt-24 text-center px-6">
         <motion.h2
