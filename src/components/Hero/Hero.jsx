@@ -1,244 +1,280 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-const HeroSlider = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+function Hero() {
+  const [isMounted, setIsMounted] = useState(false);
 
-  const slides = [
-    {
-      title: "DIGITAL MARKETING",
-      subtitle: "AGENCY",
-      highlight: "We Are",
-      description: "Data-driven strategies that deliver measurable results for your business growth",
-      cta: "GET STARTED",
-      bg: "from-emerald-900 via-teal-800 to-lime-500",
-      image: "https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-    },
-    {
-      title: "SOCIAL MEDIA",
-      subtitle: "MARKETING EXPERTS",
-      highlight: "We Build",
-      description: "Engaging campaigns that connect your brand with the right audience",
-      cta: "LEARN MORE",
-      bg: "from-green-900 via-emerald-800 to-teal-500",
-      image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
-    },
-    {
-      title: "SEO &  CONTENT",
-      subtitle: "OPTIMIZATION",
-      highlight: "We Help In",
-      description: "High-performing content that ranks and converts in competitive markets",
-      cta: "SEE RESULTS",
-      bg: "from-teal-900 via-cyan-800 to-emerald-500",
-      image: "https://plus.unsplash.com/premium_photo-1685283298465-e52e933a3312?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c2VvfGVufDB8fDB8fHww"
-    }
-  ];
-
-  // Auto slide change
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(interval);
+    setIsMounted(true);
   }, []);
 
+  // Animation variants
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
+  const floatingImage = {
+    hidden: { opacity: 0, y: 40 },
+    show: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.8,
+        ease: "easeOut"
+      } 
+    },
+    float: {
+      y: [0, -15, 0],
+      transition: {
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  // Unsplash image URLs
+  const heroBgImage = "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80";
+  const digitalMarketingImage = "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80";
+
   return (
-    <div className="relative min-h-[700px] overflow-hidden">
-      {/* Animated Background */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide}
-          className={`absolute inset-0 bg-gradient-to-r ${slides[currentSlide].bg}`}
+    <header className="relative bg-gradient-to-br from-green-700 to-emerald-700 overflow-hidden">
+      {/* Background hero image with overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={heroBgImage} 
+          alt="Digital marketing background" 
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-emerald-900/70 to-emerald-800/50"></div>
+      </div>
+
+      {/* Floating digital elements */}
+      <div className="absolute inset-0 opacity-20 z-0">
+        {[...Array(8)].map((_, i) => (
+          <motion.div 
+            key={i}
+            className={`absolute w-8 h-8 bg-white rounded-full`}
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              width: `${Math.random() * 20 + 10}px`,
+              height: `${Math.random() * 20 + 10}px`
+            }}
+            animate={{
+              y: [0, (Math.random() - 0.5) * 40, 0],
+              x: [0, (Math.random() - 0.5) * 30, 0]
+            }}
+            transition={{
+              duration: Math.random() * 10 + 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 2
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-20 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          {/* Text content */}
+          <motion.div 
+            className="lg:w-1/2 text-center lg:text-left"
+            variants={container}
+            initial="hidden"
+            animate={isMounted ? "show" : "hidden"}
+          >
+            <motion.div variants={item}>
+              <span className="inline-block px-3 py-1 text-sm font-semibold text-emerald-100 bg-emerald-800 bg-opacity-50 rounded-full mb-4">
+                Digital Marketing Experts
+              </span>
+            </motion.div>
+            
+            <motion.h1 
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6"
+              variants={item}
+              style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.3)' }}
+            >
+              <span className="block">Grow Your Business</span>
+              <span className="block text-emerald-200 bg-clip-text bg-gradient-to-r from-emerald-300 to-white">
+                Beyond Expectations
+              </span>
+            </motion.h1>
+            
+            <motion.p 
+              className="mt-6 max-w-lg mx-auto lg:mx-0 text-lg md:text-xl text-emerald-100"
+              variants={item}
+            >
+              We craft data-driven digital marketing strategies that deliver measurable results. 
+              From startups to enterprises, we help businesses thrive in the digital landscape.
+            </motion.p>
+            
+            <motion.div 
+              className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              variants={item}
+            >
+              <motion.a
+                href="/contact"
+                className="flex items-center justify-center px-8 py-3 border border-transparent text-base font-bold rounded-md text-emerald-800 bg-white hover:bg-emerald-50 md:py-4 md:text-lg md:px-10 transition-all shadow-lg hover:shadow-xl"
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 10px 25px -5px rgba(255,255,255,0.1)"
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+                Get Free Consultation
+              </motion.a>
+              <motion.a
+                href="/services"
+                className="flex items-center justify-center px-8 py-3 border-2 border-white text-base font-bold rounded-md text-white bg-transparent hover:bg-white hover:text-emerald-700 md:py-4 md:text-lg md:px-10 transition-all shadow-lg hover:shadow-xl"
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 10px 25px -5px rgba(255,255,255,0.1)"
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                Explore Services
+              </motion.a>
+            </motion.div>
+          </motion.div>
+
+          {/* Hero image */}
+          <motion.div 
+            className="lg:w-1/2 mt-12 lg:mt-0 relative"
+            initial="hidden"
+            animate={isMounted ? "show" : "hidden"}
+            variants={floatingImage}
+          >
+            <motion.img
+              src={digitalMarketingImage}
+              alt="Digital marketing illustration"
+              className="w-full max-w-lg mx-auto rounded-lg shadow-2xl border-4 border-white border-opacity-20"
+              animate="float"
+            />
+            <motion.div 
+              className="absolute -bottom-6 -left-6 bg-white p-3 rounded-full shadow-lg"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.5 }}
+              whileHover={{ scale: 1.1 }}
+            >
+              <div className="bg-emerald-600 text-white p-3 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+            </motion.div>
+            <motion.div 
+              className="absolute -top-6 -right-6 bg-white p-3 rounded-full shadow-lg"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.7 }}
+              whileHover={{ scale: 1.1 }}
+            >
+              <div className="bg-emerald-600 text-white p-3 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Marketing Metrics Highlights */}
+        <motion.div 
+          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto"
+          variants={container}
+          initial="hidden"
+          animate={isMounted ? "show" : "hidden"}
+          transition={{ delay: 0.3 }}
+        >
+          {[
+            { value: "300%+", label: "Average ROI Increase", icon: "📈" },
+            { value: "500+", label: "Satisfied Clients", icon: "😊" },
+            { value: "24/7", label: "Campaign Monitoring", icon: "👁️" },
+            { value: "1M+", label: "Leads Generated", icon: "🔥" }
+          ].map((metric, index) => (
+            <motion.div 
+              key={index}
+              className="bg-emerald-600 bg-opacity-30 backdrop-blur-sm rounded-xl p-5 text-center border border-emerald-300 border-opacity-30 hover:border-opacity-50 transition-all"
+              variants={item}
+              whileHover={{ 
+                y: -5,
+                backgroundColor: "rgba(5, 150, 105, 0.4)"
+              }}
+            >
+              <div className="text-2xl mb-2">{metric.icon}</div>
+              <p className="text-3xl font-bold text-white">{metric.value}</p>
+              <p className="text-emerald-100 mt-2">{metric.label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Trust indicators */}
+        <motion.div 
+          className="mt-16 pt-8 border-t border-emerald-500 border-opacity-30"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ delay: 0.8 }}
         >
-          {/* Animated grid pattern */}
-          <div className="absolute inset-0 opacity-10">
-            {Array.from({ length: 20 }).map((_, i) => (
+          <p className="text-center text-emerald-200 mb-6">Trusted by innovative businesses worldwide</p>
+          <div className="flex flex-wrap justify-center items-center gap-8 opacity-80 hover:opacity-100 transition-opacity">
+            {["BansalClasses", "CityMechanics", "GoldenStorm", "CAOnlineServices", "TrueDreamsClasses"].map((company, i) => (
               <motion.div
                 key={i}
-                className="absolute border-l border-white h-full"
-                style={{ left: `${i * 5}%` }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.1 }}
-                transition={{ delay: i * 0.05 }}
-              />
+                className="text-white text-xl font-bold"
+                whileHover={{ scale: 1.1 }}
+              >
+                {company}
+              </motion.div>
             ))}
           </div>
-
-          {/* Floating particles */}
-          {Array.from({ length: 15 }).map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute rounded-full bg-white opacity-20"
-              style={{
-                width: `${Math.random() * 10 + 5}px`,
-                height: `${Math.random() * 10 + 5}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, Math.random() * 100 - 50],
-                x: [0, Math.random() * 100 - 50],
-                opacity: [0.1, 0.3, 0.1],
-              }}
-              transition={{
-                duration: Math.random() * 10 + 5,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-            />
-          ))}
-
-          {/* Curved bottom edge */}
-          <div className="absolute bottom-0 left-0 w-full">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1440 120"
-              className="w-full"
-            >
-              <path
-                fill="#ffffff"
-                fillOpacity="1"
-                d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64V120H0V64Z"
-              />
-            </svg>
-          </div>
         </motion.div>
-      </AnimatePresence>
-
-      {/* Content Container */}
-      <div className="container mx-auto px-4 sm:px-12 py-12 relative z-10">
-        <div className="flex flex-wrap items-center">
-          {/* Left Content */}
-          <div className="w-full lg:w-1/2 text-white space-y-8">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`highlight-${currentSlide}`}
-                initial={{ x: -50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: 50, opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-emerald-300 text-xl sm:text-2xl font-semibold tracking-wider"
-              >
-                {slides[currentSlide].highlight}
-              </motion.div>
-            </AnimatePresence>
-
-            <AnimatePresence mode="wait">
-              <motion.h1
-                key={`title-${currentSlide}`}
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -50, opacity: 0 }}
-                transition={{ duration: 0.7 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
-              >
-                {slides[currentSlide].title.split(" ").map((word, i) => (
-                  <motion.span
-                    key={i}
-                    className="inline-block mr-2"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-                <br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 to-white">
-                  {slides[currentSlide].subtitle}
-                </span>
-              </motion.h1>
-            </AnimatePresence>
-
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={`desc-${currentSlide}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-gray-100 text-base sm:text-lg max-w-lg"
-              >
-                {slides[currentSlide].description}
-              </motion.p>
-            </AnimatePresence>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`button-${currentSlide}`}
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 1.2, opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <button className="relative overflow-hidden group bg-white text-emerald-900 px-8 sm:px-10 py-3 sm:py-4 rounded-full font-bold hover:bg-opacity-90 transition-all shadow-lg hover:shadow-emerald-300/30">
-                  <span className="relative z-10">
-                    {slides[currentSlide].cta}
-                  </span>
-                  <motion.span
-                    className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-300 opacity-0 group-hover:opacity-100 transition-opacity"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "0%" }}
-                    transition={{ duration: 0.4 }}
-                  />
-                </button>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Right Image - Animated */}
-          <div className="hidden lg:block w-full lg:w-1/2 pl-8">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`image-${currentSlide}`}
-                className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl"
-                initial={{ opacity: 0, x: 100, rotate: 2 }}
-                animate={{ opacity: 1, x: 0, rotate: 0 }}
-                exit={{ opacity: 0, x: -100, rotate: -2 }}
-                transition={{ duration: 0.8 }}
-              >
-                <img
-                  src={slides[currentSlide].image}
-                  alt={slides[currentSlide].title}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                
-                {/* Floating elements */}
-                <motion.div
-                  className="absolute top-8 right-8 w-16 h-16 bg-emerald-400 rounded-full blur-xl opacity-20"
-                  animate={{
-                    y: [0, -20, 0],
-                    x: [0, 10, 0],
-                  }}
-                  transition={{
-                    duration: 7,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                  }}
-                />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
-
-        {/* Slider Dots */}
-        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex gap-3">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                currentSlide === index ? "bg-white w-6" : "bg-white opacity-30"
-              }`}
-            />
-          ))}
-        </div>
       </div>
-    </div>
-  );
-};
 
-export default HeroSlider;
+      {/* Animated scrolling elements at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-20 overflow-hidden z-0">
+        {[...Array(5)].map((_, i) => (
+          <motion.div 
+            key={i}
+            className="absolute -left-16 bottom-4 w-8 h-8 bg-white rounded-full opacity-30"
+            style={{
+              width: `${Math.random() * 20 + 10}px`,
+              height: `${Math.random() * 20 + 10}px`,
+              bottom: `${Math.random() * 30 + 10}px`
+            }}
+            animate={{
+              x: "100vw",
+              rotate: 360
+            }}
+            transition={{
+              duration: Math.random() * 15 + 10,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 2
+            }}
+          />
+        ))}
+      </div>
+    </header>
+  );
+}
+
+export default Hero;

@@ -5,6 +5,7 @@ const ServicesPage = () => {
   const services = [
     {
       category: "Social Media Marketing",
+      link: "/smm",
       icon: "📱",
       services: [
         { name: "Facebook Marketing", link: "/fb" },
@@ -17,6 +18,7 @@ const ServicesPage = () => {
     },
     {
       category: "Search Engine Optimization",
+      link: "/seo",
       icon: "🔍",
       services: [
         { name: "On-Page SEO", link: "/onpage" },
@@ -27,6 +29,7 @@ const ServicesPage = () => {
     },
     {
       category: "PPC Advertising",
+        link: "/ppc",
       icon: "💰",
       services: [
         { name: "Google Ads", link: "/google-ads" },
@@ -36,6 +39,7 @@ const ServicesPage = () => {
     },
     {
       category: "Content Marketing",
+      link: "/content",
       icon: "✍️",
       services: [
         { name: "Blog Writing", link: "/blog-writing" },
@@ -45,6 +49,7 @@ const ServicesPage = () => {
     },
     {
       category: "Analytics & Reporting",
+      link: "/analytics",
       icon: "📊",
       services: [
         { name: "Google Analytics", link: "/google-analytics" },
@@ -54,6 +59,7 @@ const ServicesPage = () => {
     },
     {
       category: "Development",
+      link: "/development",
       icon: "💻",
       services: [
         { name: "UI/UX Design", link: "/uiux" },
@@ -62,6 +68,7 @@ const ServicesPage = () => {
     },
     {
       category: "Other Services",
+      link: "/other-services",
       icon: "✨",
       services: [
         { name: "Branding & Identity", link: "/branding" },
@@ -142,7 +149,7 @@ const ServicesPage = () => {
               </div>
               <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
                 <Link 
-                  to={`/${category.category.toLowerCase().replace(/\s+/g, '-')}`}
+                  to={category.link}
                   className="text-emerald-600 hover:text-emerald-700 font-medium flex items-center"
                 >
                   View all {category.category} services
