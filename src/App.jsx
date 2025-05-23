@@ -40,6 +40,7 @@ import Team from './components/Team/Team';
 import PaidMarketingServices from './components/Service/PaidMarketing';
 import UIUX from './components/Service/Development/UIUX';
 import AppDevelopment from './components/Service/Development/AppDevelopment';
+import ServicesPage from './components/Service/Service';
 
 const App = () => {
   return (
@@ -84,6 +85,7 @@ const App = () => {
          <Route path='/privacy'  element={<Privacy />} />
          <Route path='/terms'  element={<Terms />} />
          <Route path='/paid-marketing'  element={<PaidMarketingServices />} />
+         <Route path='/service'  element={<ServicesPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

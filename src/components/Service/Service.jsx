@@ -1,387 +1,192 @@
-import React, { useRef, useEffect, useState } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
-import {
-  FaSearch,
-  FaChartLine,
-  FaFacebook,
-  FaPenAlt,
-  FaEnvelope,
-  FaLaptop,
-  FaCheck,
-  FaShieldAlt,
-  FaLightbulb,
-  FaUsers,
-  FaChartBar,
-  FaMobileAlt,
-  FaGlobe,
-} from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
-const Services = () => {
-  // Infinite scroll setup for trusted companies
-  const [scrollerWidth, setScrollerWidth] = useState(0);
-  const scrollerRef = useRef(null);
-  const containerRef = useRef(null);
-  const controls = useAnimation();
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-  const companies = [
-    "Google",
-    "Microsoft",
-    "Amazon",
-    "Apple",
-    "Meta",
-    "Netflix",
-    "Tesla",
-    "Adobe",
-    "Spotify",
-    "Airbnb",
-    "Uber",
-    "Intel",
-    "Samsung",
-    "PayPal",
-    "LinkedIn",
-    "Twitter",
-  ];
-
-  // Calculate scroll distance for seamless loop
-  useEffect(() => {
-    if (scrollerRef.current && containerRef.current) {
-      const containerWidth = containerRef.current.offsetWidth;
-      const scrollerContentWidth = scrollerRef.current.scrollWidth;
-      setScrollerWidth(scrollerContentWidth + containerWidth);
-    }
-  }, []);
-
-  useEffect(() => {
-    controls.start({
-      x: [0, -scrollerWidth / 2],
-      transition: {
-        x: {
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: 30,
-          ease: "linear",
-        },
-      },
-    });
-  }, [scrollerWidth, controls]);
-
+const ServicesPage = () => {
   const services = [
     {
-      icon: <FaSearch className="text-3xl text-green-600" />,
-      title: "Search Engine Optimization",
-      description:
-        "Dominate search rankings with our comprehensive SEO strategies that drive qualified traffic and boost conversions.",
-      features: [
-        "Advanced keyword research & analysis",
-        "Technical SEO optimization",
-        "Content strategy & link building",
-        "Local SEO for geo-targeted results",
-      ],
+      category: "Social Media Marketing",
+      icon: "📱",
+      services: [
+        { name: "Facebook Marketing", link: "/fb" },
+        { name: "Instagram Marketing", link: "/insta" },
+        { name: "LinkedIn Marketing", link: "/linkedin" },
+        { name: "Twitter Marketing", link: "/twitter" },
+        { name: "Social Media Management", link: "/social-media-management" },
+        { name: "Influencer Marketing", link: "/influencer-marketing" }
+      ]
     },
     {
-      icon: <FaChartLine className="text-3xl text-green-600" />,
-      title: "Performance Marketing",
-      description:
-        "Maximize ROI with data-driven paid campaigns across all major digital platforms.",
-      features: [
-        "Google Ads & Microsoft Advertising",
-        "Social media advertising (Meta, LinkedIn)",
-        "Programmatic & display advertising",
-        "Conversion rate optimization",
-      ],
+      category: "Search Engine Optimization",
+      icon: "🔍",
+      services: [
+        { name: "On-Page SEO", link: "/onpage" },
+        { name: "Off-Page SEO", link: "/offpage" },
+        { name: "Technical SEO", link: "/technical" },
+        { name: "SEO Audits", link: "/seo-audits" }
+      ]
     },
     {
-      icon: <FaUsers className="text-3xl text-green-600" />,
-      title: "Social Media Management",
-      description:
-        "Build authentic relationships and brand loyalty through strategic social engagement.",
-      features: [
-        "Platform-specific content strategies",
-        "Community growth & management",
-        "Influencer marketing programs",
-        "Social listening & sentiment analysis",
-      ],
+      category: "PPC Advertising",
+      icon: "💰",
+      services: [
+        { name: "Google Ads", link: "/google-ads" },
+        { name: "Meta Ads (Facebook/Instagram)", link: "/meta-ads" },
+        { name: "Display Advertising", link: "/display" }
+      ]
     },
     {
-      icon: <FaPenAlt className="text-3xl text-green-600" />,
-      title: "Content Strategy",
-      description:
-        "Attract, engage, and convert your audience with compelling content across all channels.",
-      features: [
-        "Blogs & thought leadership content",
-        "Video production & storytelling",
-        "Email marketing automation",
-        "Interactive content creation",
-      ],
+      category: "Content Marketing",
+      icon: "✍️",
+      services: [
+        { name: "Blog Writing", link: "/blog-writing" },
+        { name: "Video Content", link: "/video-content" },
+        { name: "Infographics", link: "/infographics" }
+      ]
     },
     {
-      icon: <FaLaptop className="text-3xl text-green-600" />,
-      title: "Web Experience",
-      description:
-        "Create high-converting digital experiences that delight users and drive business growth.",
-      features: [
-        "UX/UI design & optimization",
-        "Conversion-focused development",
-        "Progressive web apps",
-        "Performance optimization",
-      ],
+      category: "Analytics & Reporting",
+      icon: "📊",
+      services: [
+        { name: "Google Analytics", link: "/google-analytics" },
+        { name: "Conversion Tracking", link: "/conversion-tracking" },
+        { name: "ROI Analysis", link: "/roi-analysis" }
+      ]
     },
     {
-      icon: <FaMobileAlt className="text-3xl text-green-600" />,
-      title: "Mobile Marketing",
-      description:
-        "Reach your audience wherever they are with cutting-edge mobile strategies.",
-      features: [
-        "App store optimization",
-        "Mobile advertising campaigns",
-        "SMS marketing automation",
-        "Location-based marketing",
-      ],
+      category: "Development",
+      icon: "💻",
+      services: [
+        { name: "UI/UX Design", link: "/uiux" },
+        { name: "App Development", link: "/app-development" }
+      ]
     },
+    {
+      category: "Other Services",
+      icon: "✨",
+      services: [
+        { name: "Branding & Identity", link: "/branding" },
+        { name: "Email Marketing", link: "/email" },
+        { name: "Paid Marketing", link: "/paid-marketing" }
+      ]
+    }
   ];
 
   return (
-    <div className="bg-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <Helmet>
-        <title>Adonomics - Digital Marketing Services</title>
-        <meta
-          name="description"
-          content="Explore our comprehensive digital marketing services designed to elevate your brand and drive measurable results."
-        />
-        <meta
-          name="keywords"
-          content="Digital Marketing, SEO, Content Strategy, Social Media Management, Performance Marketing, Web Experience, Mobile Marketing"
-        />
-        <meta name="author" content="Adonomics Technologies" />
-        <link
-          rel="canonical"
-          href="https://adonomicstechnologies.com/services"
-        />
-        <meta
-          property="og:title"
-          content="Adonomics - Digital Marketing Services"
-        />
-        <meta
-          property="og:description"
-          content="Explore our comprehensive digital marketing services designed to elevate your brand and drive measurable results."
-        />
-        <meta
-          property="og:image"
-          content="https://adonomicstechnologies.com/Logo.png"
-        />
-        <meta
-          property="og:url"
-          content="https://adonomicstechnologies.com/services"
-        />
-        <meta property="og:type" content="website" />
-        <meta name="robots" content="index, nofollow" />
-      </Helmet>
+    <div className="bg-gray-50">
       {/* Hero Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-16"
-      >
-        <h1 className="text-4xl md:text-5xl font-bold text-green-600 mb-4">
-          Results-Driven Digital Marketing Services
-        </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          We combine data, creativity, and technology to deliver measurable
-          business growth
-        </p>
-      </motion.div>
-
-      {/* Trusted Companies Marquee */}
-      <div className="mb-20">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-8"
-        >
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
-            Trusted by Innovative Brands Worldwide
-          </h2>
-          <p className="text-gray-600">
-            Join hundreds of companies accelerating their growth with our
-            solutions
-          </p>
-        </motion.div>
-
-        <div ref={containerRef} className="relative h-32 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white z-10 pointer-events-none" />
-          <motion.div
-            ref={scrollerRef}
-            className="absolute flex items-center gap-8 px-4 h-full"
-            animate={controls}
-            style={{ width: scrollerWidth * 2 }}
-          >
-            {[...companies, ...companies, ...companies].map(
-              (company, index) => (
-                <motion.div
-                  key={`${company}-${index}`}
-                  className="flex-shrink-0 px-8 py-4 bg-white rounded-xl shadow-md border border-green-100 flex items-center justify-center"
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0 8px 20px rgba(74, 222, 128, 0.3)",
-                  }}
-                >
-                  <span className="text-xl font-medium text-green-700 whitespace-nowrap">
-                    {company}
-                  </span>
-                </motion.div>
-              )
-            )}
-          </motion.div>
+      <div className="relative bg-gradient-to-r from-emerald-600 to-blue-600 text-white py-20 md:py-32">
+        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Our Digital Marketing Services
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-blue-100">
+              Comprehensive solutions to grow your brand online. We combine strategy, creativity, and technology to deliver exceptional results.
+            </p>
+            <Link to="/contact">
+              <button className="bg-white text-emerald-600 hover:bg-emerald-50 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg">
+                Get Started Today
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
 
       {/* Services Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-        {services.map((service, index) => (
-          <motion.div
-            key={index}
-            className="bg-white rounded-xl shadow-lg p-8 border border-green-100 hover:shadow-xl transition-all flex flex-col h-full"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -8 }}
-          >
-            <div className="flex items-center mb-5">
-              <div className="p-3 bg-green-50 rounded-lg mr-4">
-                {service.icon}
+      <div className="container mx-auto px-4 py-16 md:py-24">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Our Comprehensive Service Offerings
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            We offer a full spectrum of digital marketing services to help your business thrive in the online world.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((category, index) => (
+            <div 
+              key={index} 
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+            >
+              <div className="p-6">
+                <div className="flex items-center mb-4">
+                  <span className="text-4xl mr-4">{category.icon}</span>
+                  <h3 className="text-2xl font-bold text-gray-900">{category.category}</h3>
+                </div>
+                <ul className="space-y-3">
+                  {category.services.map((service, sIndex) => (
+                    <li key={sIndex}>
+                      <Link 
+                        to={service.link} 
+                        className="flex items-center py-2 px-3 rounded-lg hover:bg-emerald-50 group transition"
+                      >
+                        <span className="w-2 h-2 bg-emerald-500 rounded-full mr-3"></span>
+                        <span className="text-gray-700 group-hover:text-emerald-600 transition">
+                          {service.name}
+                        </span>
+                        <svg 
+                          className="w-4 h-4 ml-auto text-gray-400 group-hover:text-emerald-500 transition" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24" 
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="text-xl font-bold text-green-700">
-                {service.title}
-              </h3>
+              <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
+                <Link 
+                  to={`/${category.category.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="text-emerald-600 hover:text-emerald-700 font-medium flex items-center"
+                >
+                  View all {category.category} services
+                  <svg 
+                    className="w-4 h-4 ml-1" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
             </div>
-            <p className="text-gray-600 mb-5">{service.description}</p>
-            <ul className="space-y-3 mb-6">
-              {service.features.map((feature, i) => (
-                <li key={i} className="flex items-start">
-                  <FaCheck className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700">{feature}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-auto">
-              <button className="text-green-600 font-medium hover:text-green-700 transition-colors">
-                Learn more →
-              </button>
-            </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
 
-      {/* Differentiators Section */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="max-w-full mx-auto bg-gradient-to-r from-green-50 to-green-100 p-10 rounded-2xl mb-20"
-      >
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-green-700 mb-8 text-center">
-            The Adonomics Advantage
+      {/* CTA Section */}
+      <div className="bg-gradient-to-r from-blue-700 to-emerald-700 text-white py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Transform Your Digital Presence?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                icon: <FaLightbulb className="text-2xl" />,
-                title: "Innovation-Driven",
-                desc: "We pioneer cutting-edge marketing technologies that give you a competitive edge",
-              },
-              {
-                icon: <FaChartBar className="text-2xl" />,
-                title: "Data-Optimized",
-                desc: "Real-time analytics and AI-driven insights maximize your campaign performance",
-              },
-              {
-                icon: <FaShieldAlt className="text-2xl" />,
-                title: "Transparent & Secure",
-                desc: "Enterprise-grade security with full visibility into all marketing activities",
-              },
-              {
-                icon: <FaGlobe className="text-2xl" />,
-                title: "Global Expertise",
-                desc: "Localized strategies tailored to your target markets worldwide",
-              },
-              {
-                icon: <FaUsers className="text-2xl" />,
-                title: "Dedicated Teams",
-                desc: "Your success is managed by senior specialists, not junior staff",
-              },
-              {
-                icon: <FaCheck className="text-2xl" />,
-                title: "Proven Results",
-                desc: "Documented case studies demonstrate our consistent performance",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-              >
-                <div className="bg-green-100 p-3 rounded-full mb-4 text-green-600">
-                  {item.icon}
-                </div>
-                <h3 className="text-lg font-bold text-green-700 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600">{item.desc}</p>
-              </motion.div>
-            ))}
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+            Our team of experts is ready to help you achieve your business goals through strategic digital marketing solutions.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link to="/contact">
+              <button className="bg-white text-emerald-600 hover:bg-emerald-50 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
+                Get a Free Consultation
+              </button>
+            </Link>
+            <Link to="/portfolio">
+              <button className="border-2 border-white text-white hover:bg-white/10 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
+                View Our Work
+              </button>
+            </Link>
           </div>
         </div>
-      </motion.div>
-
-      {/* CTA Section */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        className="text-center bg-gradient-to-r from-green-600 to-green-700 p-12 rounded-2xl shadow-lg max-w-4xl mx-auto"
-      >
-        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-          Ready to Outperform Your Competition?
-        </h3>
-        <p className="text-green-100 text-lg mb-8 max-w-2xl mx-auto">
-          Schedule your free strategy session and receive a customized growth
-          plan
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Link to="/contact">
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 5px 15px rgba(255, 255, 255, 0.4)",
-              }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-white text-green-600 hover:bg-gray-50 font-bold py-4 px-10 rounded-full text-lg transition-all shadow-md"
-            >
-              Get Started Today
-            </motion.button>
-          </Link>
-          <Link to="/contact">
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-              }}
-              whileTap={{ scale: 0.98 }}
-              className="border-2 border-white text-white hover:bg-white hover:bg-opacity-10 font-bold py-4 px-10 rounded-full text-lg transition-all"
-            >
-              View Case Studies
-            </motion.button>
-          </Link>
-        </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
 
-export default Services;
+export default ServicesPage;
