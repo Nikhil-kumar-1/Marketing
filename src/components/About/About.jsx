@@ -1,8 +1,8 @@
 // AboutSection.jsx
-import { motion } from 'framer-motion';
-import { FiCheck } from 'react-icons/fi';
-import { FaChartLine, FaUsers, FaLightbulb, FaAward } from 'react-icons/fa';
-
+import { motion } from "framer-motion";
+import { FiCheck } from "react-icons/fi";
+import { FaChartLine, FaUsers, FaLightbulb, FaAward } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 const AboutSection = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -10,9 +10,9 @@ const AboutSection = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        when: "beforeChildren"
-      }
-    }
+        when: "beforeChildren",
+      },
+    },
   };
 
   const itemVariants = {
@@ -22,20 +22,61 @@ const AboutSection = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const stats = [
-    { value: "10+", label: "Years Experience", icon: <FaAward className="text-emerald-500 text-2xl" /> },
-    { value: "500+", label: "Clients Worldwide", icon: <FaUsers className="text-emerald-500 text-2xl" /> },
-    { value: "95%", label: "Client Retention", icon: <FaChartLine className="text-emerald-500 text-2xl" /> },
-    { value: "50+", label: "Awards Won", icon: <FaLightbulb className="text-emerald-500 text-2xl" /> }
+    {
+      value: "10+",
+      label: "Years Experience",
+      icon: <FaAward className="text-emerald-500 text-2xl" />,
+    },
+    {
+      value: "500+",
+      label: "Clients Worldwide",
+      icon: <FaUsers className="text-emerald-500 text-2xl" />,
+    },
+    {
+      value: "95%",
+      label: "Client Retention",
+      icon: <FaChartLine className="text-emerald-500 text-2xl" />,
+    },
+    {
+      value: "50+",
+      label: "Awards Won",
+      icon: <FaLightbulb className="text-emerald-500 text-2xl" />,
+    },
   ];
 
   return (
     <section className=" py-20 bg-gradient-to-br from-white to-gray-50 overflow-hidden">
+      <Helmet>
+        <title>About Us | Adonomics Technologies</title>
+        <meta
+          name="keywords"
+          content="Adonomics Technologies, Adonomics, digital marketing agency, website development, digital marketing services in Patna, Patna, digital marketing, SEO, social media marketing, PPC, content marketing, web development"
+        />
+        <meta name="author" content="Adonomics Technologies" />
+        <meta
+          name="description"
+          content="Welcome to Adonomics Technologies, your partner in digital excellence. We specialize in web development, digital marketing, and data analytics."
+        />
+        <link rel="canonical" href="/about" />
+        <meta property="og:title" content="About Us | Adonomics Technologies" />
+        <meta
+          property="og:description"
+          content="Learn more about Adonomics Technologies, a leading digital marketing agency specializing in web development, SEO, and data analytics."
+        />
+
+        <meta
+          property="og:url"
+          content="https://adonomicstechnologies.com/about"
+        />
+        <meta property="og:type" content="website" />
+        <meta name="robots" content="index, nofollow" />
+      </Helmet>
       <div className="container mx-auto px-4 min-h-screen">
         <motion.div
           initial="hidden"
@@ -45,10 +86,7 @@ const AboutSection = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
         >
           {/* Left Column - Image with Animation */}
-          <motion.div 
-            variants={itemVariants}
-            className="relative"
-          >
+          <motion.div variants={itemVariants} className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
@@ -66,7 +104,7 @@ const AboutSection = () => {
                 duration: 8,
                 repeat: Infinity,
                 repeatType: "reverse",
-                ease: "easeInOut"
+                ease: "easeInOut",
               }}
               className="absolute -bottom-8 -right-8 bg-white p-6 rounded-xl shadow-lg border border-gray-100 max-w-xs"
             >
@@ -75,8 +113,12 @@ const AboutSection = () => {
                   <FaUsers className="text-emerald-600 text-xl" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">500+ Happy Clients</h3>
-                  <p className="text-gray-600 text-sm mt-1">Trusted by businesses worldwide</p>
+                  <h3 className="text-xl font-bold text-gray-900">
+                    500+ Happy Clients
+                  </h3>
+                  <p className="text-gray-600 text-sm mt-1">
+                    Trusted by businesses worldwide
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -90,18 +132,22 @@ const AboutSection = () => {
               </span>
             </motion.div>
 
-            <motion.h2 
+            <motion.h2
               variants={itemVariants}
               className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
             >
-              We Combine <span className="text-emerald-600">Innovation</span> With Proven Marketing Strategies
+              We Combine <span className="text-emerald-600">Innovation</span>{" "}
+              With Proven Marketing Strategies
             </motion.h2>
 
-            <motion.p 
+            <motion.p
               variants={itemVariants}
               className="text-lg text-gray-600 mb-8"
             >
-              Founded in 2012, we've grown from a small team of marketing enthusiasts to a full-service digital agency helping businesses transform their online presence. Our data-driven approach ensures measurable results for every client.
+              Founded in 2012, we've grown from a small team of marketing
+              enthusiasts to a full-service digital agency helping businesses
+              transform their online presence. Our data-driven approach ensures
+              measurable results for every client.
             </motion.p>
 
             <motion.div variants={itemVariants} className="mb-10">
@@ -109,24 +155,30 @@ const AboutSection = () => {
                 <div className="bg-emerald-100 p-2 rounded-full mr-4">
                   <FiCheck className="text-emerald-600" />
                 </div>
-                <p className="text-gray-800 font-medium">Comprehensive digital marketing solutions</p>
+                <p className="text-gray-800 font-medium">
+                  Comprehensive digital marketing solutions
+                </p>
               </div>
               <div className="flex items-center mb-4">
                 <div className="bg-emerald-100 p-2 rounded-full mr-4">
                   <FiCheck className="text-emerald-600" />
                 </div>
-                <p className="text-gray-800 font-medium">Transparent reporting and analytics</p>
+                <p className="text-gray-800 font-medium">
+                  Transparent reporting and analytics
+                </p>
               </div>
               <div className="flex items-center">
                 <div className="bg-emerald-100 p-2 rounded-full mr-4">
                   <FiCheck className="text-emerald-600" />
                 </div>
-                <p className="text-gray-800 font-medium">Dedicated account managers</p>
+                <p className="text-gray-800 font-medium">
+                  Dedicated account managers
+                </p>
               </div>
             </motion.div>
 
             {/* Stats Grid */}
-            <motion.div 
+            <motion.div
               variants={containerVariants}
               className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8"
             >
@@ -138,7 +190,9 @@ const AboutSection = () => {
                   className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"
                 >
                   <div className="flex justify-center mb-2">{stat.icon}</div>
-                  <h3 className="text-2xl font-bold text-gray-900">{stat.value}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    {stat.value}
+                  </h3>
                   <p className="text-gray-600 text-sm">{stat.label}</p>
                 </motion.div>
               ))}
