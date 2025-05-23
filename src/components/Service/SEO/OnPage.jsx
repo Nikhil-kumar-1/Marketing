@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const OnPageSEO = () => {
   return (
@@ -311,10 +312,11 @@ const OnPageSEO = () => {
                 </p>
               </div>
               <br></br>
-
+                      <Link to="/contact">
               <button className="cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 animate-fade-in delay-300">
                 Contact Us
               </button>
+                      </Link>
             </div>
           </div>
         </div>
