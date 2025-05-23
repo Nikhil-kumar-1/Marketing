@@ -1,15 +1,10 @@
 import React, { useRef, useState } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FiExternalLink, FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const Gallery = () => {
   const [selectedId, setSelectedId] = useState(null);
-  const galleryRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: galleryRef,
-    offset: ["start start", "end start"],
-  });
-
+  
   const projects = [
     {
       id: 1,
@@ -61,39 +56,19 @@ const Gallery = () => {
     },
   ];
 
-  // Parallax effects
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.3]);
-
   return (
-    <div ref={galleryRef} className="min-h-screen bg-gradient-to-br from-gray-900 to-black py-20 px-4 sm:px-8">
+    <div className="bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <motion.div 
-          className="text-center mb-16"
-          style={{ opacity }}
-        >
-          <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Our Portfolio
-          </motion.h2>
-          <motion.p 
-            className="text-xl text-gray-300 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          </h2>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Explore our latest projects and see how we transform ideas into digital experiences
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          style={{ y }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
             <ProjectCard 
               key={project.id} 
@@ -101,7 +76,7 @@ const Gallery = () => {
               onClick={() => setSelectedId(project.id)}
             />
           ))}
-        </motion.div>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -131,13 +106,12 @@ const ProjectCard = ({ project, onClick }) => {
     <motion.div
       layoutId={`card-${project.id}`}
       onClick={() => onClick(project.id)}
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.98 }}
-      viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-      transition={{ type: "spring", stiffness: 400, damping: 20 }}
-      className="relative rounded-2xl overflow-hidden cursor-pointer group"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.02 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.3 }}
+      className="relative rounded-xl overflow-hidden cursor-pointer group bg-gray-800"
     >
       <div className="aspect-[4/3]">
         <img
@@ -147,19 +121,21 @@ const ProjectCard = ({ project, onClick }) => {
           loading="lazy"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <h3 className="text-white text-xl font-bold mb-1">{project.title}</h3>
-        <p className="text-gray-300 text-sm mb-3">{project.category}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag, i) => (
-            <span key={i} className="text-xs bg-emerald-900/50 text-emerald-300 px-2 py-1 rounded">
+      <div className="p-4">
+        <h3 className="text-white text-lg font-bold mb-1">{project.title}</h3>
+        <p className="text-gray-400 text-sm mb-2">{project.category}</p>
+        <div className="flex flex-wrap gap-1">
+          {project.tags.slice(0, 2).map((tag, i) => (
+            <span key={i} className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">
               {tag}
             </span>
           ))}
+          {project.tags.length > 2 && (
+            <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">
+              +{project.tags.length - 2}
+            </span>
+          )}
         </div>
-        <button className="self-end bg-emerald-600 hover:bg-emerald-700 text-white p-2 rounded-full">
-          <FiExternalLink />
-        </button>
       </div>
     </motion.div>
   );
@@ -171,68 +147,67 @@ const ProjectModal = ({ project, onClose, onNext, onPrev }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
       onClick={onClose}
     >
       <motion.div 
         layoutId={`card-${project.id}`}
-        className="relative bg-gray-900 rounded-2xl overflow-hidden max-w-6xl w-full max-h-[90vh] flex flex-col md:flex-row"
+        className="relative bg-gray-800 rounded-xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 text-white bg-gray-800 hover:bg-gray-700 rounded-full p-2"
+          className="absolute top-4 right-4 z-10 text-white bg-gray-700 hover:bg-gray-600 rounded-full p-2"
         >
-          <FiX size={24} />
+          <FiX size={20} />
         </button>
 
-        <div className="md:w-1/2 h-64 md:h-auto">
+        <div className="h-48 sm:h-64 bg-gray-900">
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
         </div>
 
-        <div className="md:w-1/2 p-8 overflow-y-auto">
-          <div className="flex justify-between items-start mb-6">
-            <div>
-              <span className="text-emerald-400 font-medium">{project.category}</span>
-              <h2 className="text-3xl font-bold text-white mt-1">{project.title}</h2>
-            </div>
-            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-full flex items-center">
-              <FiExternalLink className="mr-2" />
-              Visit Project
-            </button>
+        <div className="p-6 overflow-y-auto">
+          <div className="mb-6">
+            <span className="text-emerald-400 text-sm font-medium">{project.category}</span>
+            <h2 className="text-2xl font-bold text-white mt-1">{project.title}</h2>
           </div>
 
-          <p className="text-gray-300 mb-8">{project.description}</p>
+          <p className="text-gray-300 mb-6">{project.description}</p>
 
-          <div className="mb-8">
-            <h3 className="text-white font-medium mb-3">Technologies & Skills</h3>
+          <div className="mb-6">
+            <h3 className="text-white font-medium mb-2">Technologies & Skills</h3>
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag, i) => (
-                <span key={i} className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">
+                <span key={i} className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-sm">
                   {tag}
                 </span>
               ))}
             </div>
           </div>
+          
 
-          <div className="flex justify-between mt-auto pt-4 border-t border-gray-800">
+          <div className="flex justify-between pt-4 border-t border-gray-700">
             <button 
               onClick={onPrev}
-              className="text-gray-400 hover:text-white flex items-center"
+              className="text-gray-400 hover:text-white flex items-center text-sm"
             >
               <FiChevronLeft className="mr-1" />
               Previous
             </button>
             <button 
               onClick={onNext}
-              className="text-gray-400 hover:text-white flex items-center"
+              className="text-gray-400 hover:text-white flex items-center text-sm"
             >
               Next
               <FiChevronRight className="ml-1" />
+            </button>
+             <button className=" bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-full flex items-center">
+              <FiExternalLink className="mr-2" />
+              Visit Project
             </button>
           </div>
         </div>
