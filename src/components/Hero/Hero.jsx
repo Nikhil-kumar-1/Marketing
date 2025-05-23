@@ -228,8 +228,40 @@ function Hero() {
         </motion.div>
 
         {/* Trust indicators */}
+        {/* Digital Divider */}
         <motion.div 
-          className="mt-16 pt-8 border-t border-emerald-500 border-opacity-30"
+          className="mt-16 relative"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+        >
+          <div className="absolute inset-0 flex items-center" aria-hidden="true">
+            <div className="w-full border-t-2 border-dashed border-emerald-300 border-opacity-30"></div>
+          </div>
+          <div className="relative flex justify-center">
+            <motion.span 
+              className="px-6 py-2 bg-emerald-600 text-white rounded-full flex items-center shadow-lg"
+              animate={{
+                scale: [1, 1.1, 1],
+                rotate: [0, 5, -5, 0],
+                boxShadow: ["0 4px 6px rgba(5, 150, 105, 0.3)", "0 10px 15px rgba(5, 150, 105, 0.4)", "0 4px 6px rgba(5, 150, 105, 0.3)"]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                repeatType: "mirror"
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              Personalized Strategy for Every Business
+            </motion.span>
+          </div>
+        </motion.div>
+
+        <motion.div 
+          className="mt-10 pt-8  border-emerald-500 border-opacity-30"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
@@ -248,6 +280,9 @@ function Hero() {
           </div>
         </motion.div>
       </div>
+
+      
+      
 
       {/* Animated scrolling elements at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-20 overflow-hidden z-0">
