@@ -13,9 +13,10 @@ import {
   FaUsers,
   FaChartBar,
   FaMobileAlt,
-  FaGlobe
+  FaGlobe,
 } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 const Services = () => {
   // Infinite scroll setup for trusted companies
   const [scrollerWidth, setScrollerWidth] = useState(0);
@@ -75,7 +76,7 @@ const Services = () => {
         "Advanced keyword research & analysis",
         "Technical SEO optimization",
         "Content strategy & link building",
-        "Local SEO for geo-targeted results"
+        "Local SEO for geo-targeted results",
       ],
     },
     {
@@ -87,57 +88,95 @@ const Services = () => {
         "Google Ads & Microsoft Advertising",
         "Social media advertising (Meta, LinkedIn)",
         "Programmatic & display advertising",
-        "Conversion rate optimization"
+        "Conversion rate optimization",
       ],
     },
     {
       icon: <FaUsers className="text-3xl text-green-600" />,
       title: "Social Media Management",
-      description: "Build authentic relationships and brand loyalty through strategic social engagement.",
+      description:
+        "Build authentic relationships and brand loyalty through strategic social engagement.",
       features: [
         "Platform-specific content strategies",
         "Community growth & management",
         "Influencer marketing programs",
-        "Social listening & sentiment analysis"
+        "Social listening & sentiment analysis",
       ],
     },
     {
       icon: <FaPenAlt className="text-3xl text-green-600" />,
       title: "Content Strategy",
-      description: "Attract, engage, and convert your audience with compelling content across all channels.",
+      description:
+        "Attract, engage, and convert your audience with compelling content across all channels.",
       features: [
         "Blogs & thought leadership content",
         "Video production & storytelling",
         "Email marketing automation",
-        "Interactive content creation"
+        "Interactive content creation",
       ],
     },
     {
       icon: <FaLaptop className="text-3xl text-green-600" />,
       title: "Web Experience",
-      description: "Create high-converting digital experiences that delight users and drive business growth.",
+      description:
+        "Create high-converting digital experiences that delight users and drive business growth.",
       features: [
         "UX/UI design & optimization",
         "Conversion-focused development",
         "Progressive web apps",
-        "Performance optimization"
+        "Performance optimization",
       ],
     },
     {
       icon: <FaMobileAlt className="text-3xl text-green-600" />,
       title: "Mobile Marketing",
-      description: "Reach your audience wherever they are with cutting-edge mobile strategies.",
+      description:
+        "Reach your audience wherever they are with cutting-edge mobile strategies.",
       features: [
         "App store optimization",
         "Mobile advertising campaigns",
         "SMS marketing automation",
-        "Location-based marketing"
+        "Location-based marketing",
       ],
     },
   ];
 
   return (
     <div className="bg-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <Helmet>
+        <title>Adonomics - Digital Marketing Services</title>
+        <meta
+          name="description"
+          content="Explore our comprehensive digital marketing services designed to elevate your brand and drive measurable results."
+        />
+        <meta
+          name="keywords"
+          content="Digital Marketing, SEO, Content Strategy, Social Media Management, Performance Marketing, Web Experience, Mobile Marketing"
+        />
+        <meta name="author" content="Adonomics Technologies" />
+        <link
+          rel="canonical"
+          href="https://adonomicstechnologies.com/services"
+        />
+        <meta
+          property="og:title"
+          content="Adonomics - Digital Marketing Services"
+        />
+        <meta
+          property="og:description"
+          content="Explore our comprehensive digital marketing services designed to elevate your brand and drive measurable results."
+        />
+        <meta
+          property="og:image"
+          content="https://adonomicstechnologies.com/Logo.png"
+        />
+        <meta
+          property="og:url"
+          content="https://adonomicstechnologies.com/services"
+        />
+        <meta property="og:type" content="website" />
+        <meta name="robots" content="index, nofollow" />
+      </Helmet>
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -149,7 +188,8 @@ const Services = () => {
           Results-Driven Digital Marketing Services
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          We combine data, creativity, and technology to deliver measurable business growth
+          We combine data, creativity, and technology to deliver measurable
+          business growth
         </p>
       </motion.div>
 
@@ -165,7 +205,8 @@ const Services = () => {
             Trusted by Innovative Brands Worldwide
           </h2>
           <p className="text-gray-600">
-            Join hundreds of companies accelerating their growth with our solutions
+            Join hundreds of companies accelerating their growth with our
+            solutions
           </p>
         </motion.div>
 
@@ -251,32 +292,32 @@ const Services = () => {
               {
                 icon: <FaLightbulb className="text-2xl" />,
                 title: "Innovation-Driven",
-                desc: "We pioneer cutting-edge marketing technologies that give you a competitive edge"
+                desc: "We pioneer cutting-edge marketing technologies that give you a competitive edge",
               },
               {
                 icon: <FaChartBar className="text-2xl" />,
                 title: "Data-Optimized",
-                desc: "Real-time analytics and AI-driven insights maximize your campaign performance"
+                desc: "Real-time analytics and AI-driven insights maximize your campaign performance",
               },
               {
                 icon: <FaShieldAlt className="text-2xl" />,
                 title: "Transparent & Secure",
-                desc: "Enterprise-grade security with full visibility into all marketing activities"
+                desc: "Enterprise-grade security with full visibility into all marketing activities",
               },
               {
                 icon: <FaGlobe className="text-2xl" />,
                 title: "Global Expertise",
-                desc: "Localized strategies tailored to your target markets worldwide"
+                desc: "Localized strategies tailored to your target markets worldwide",
               },
               {
                 icon: <FaUsers className="text-2xl" />,
                 title: "Dedicated Teams",
-                desc: "Your success is managed by senior specialists, not junior staff"
+                desc: "Your success is managed by senior specialists, not junior staff",
               },
               {
                 icon: <FaCheck className="text-2xl" />,
                 title: "Proven Results",
-                desc: "Documented case studies demonstrate our consistent performance"
+                desc: "Documented case studies demonstrate our consistent performance",
               },
             ].map((item, index) => (
               <motion.div
@@ -310,28 +351,33 @@ const Services = () => {
           Ready to Outperform Your Competition?
         </h3>
         <p className="text-green-100 text-lg mb-8 max-w-2xl mx-auto">
-          Schedule your free strategy session and receive a customized growth plan
+          Schedule your free strategy session and receive a customized growth
+          plan
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <motion.button
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 5px 15px rgba(255, 255, 255, 0.4)",
-            }}
-            whileTap={{ scale: 0.98 }}
-            className="bg-white text-green-600 hover:bg-gray-50 font-bold py-4 px-10 rounded-full text-lg transition-all shadow-md"
-          >
-            Get Started Today
-          </motion.button>
-          <motion.button
-            whileHover={{
-              scale: 1.05,
-            }}
-            whileTap={{ scale: 0.98 }}
-            className="border-2 border-white text-white hover:bg-white hover:bg-opacity-10 font-bold py-4 px-10 rounded-full text-lg transition-all"
-          >
-            View Case Studies
-          </motion.button>
+          <Link to="/contact">
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 5px 15px rgba(255, 255, 255, 0.4)",
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-white text-green-600 hover:bg-gray-50 font-bold py-4 px-10 rounded-full text-lg transition-all shadow-md"
+            >
+              Get Started Today
+            </motion.button>
+          </Link>
+          <Link to="/contact">
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="border-2 border-white text-white hover:bg-white hover:bg-opacity-10 font-bold py-4 px-10 rounded-full text-lg transition-all"
+            >
+              View Case Studies
+            </motion.button>
+          </Link>
         </div>
       </motion.div>
     </div>
