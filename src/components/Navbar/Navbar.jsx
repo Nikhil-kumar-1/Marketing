@@ -31,7 +31,7 @@ const Navbar = () => {
     { name: "Home", link: "/" },
     {
       name: "Services",
-      link: "#",
+      link: "/services",
       dropdown: [
         {
           name: "Social Media Marketing",
@@ -210,7 +210,8 @@ const Navbar = () => {
                 >
                   <div className="flex items-center">
                     {item.dropdown ? (
-                      <button
+                      <Link
+                        to={item.link}
                         onClick={() => handleDropdownClick(index)}
                         className="text-gray-800 hover:text-emerald-600 font-medium transition-colors relative group flex items-center"
                       >
@@ -222,7 +223,7 @@ const Navbar = () => {
                             activeDropdown === index ? "rotate-180" : ""
                           }`}
                         />
-                      </button>
+                      </Link>
                     ) : (
                       <Link
                         to={item.link}
@@ -330,7 +331,13 @@ const Navbar = () => {
                         className="flex justify-between items-center py-2 text-gray-800 font-medium cursor-pointer"
                         onClick={() => handleDropdownClick(index)}
                       >
-                        <span>{item.name}</span>
+                        <Link
+                          to={item.link}
+                          onClick={() => setIsMenuOpen(false)}
+                          className="flex-1"
+                        >
+                          {item.name}
+                        </Link>
                         <FaChevronDown
                           size={14}
                           className={`transition-transform ${
