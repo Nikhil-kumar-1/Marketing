@@ -108,7 +108,7 @@ const ServicesPage = () => {
           {services.map((category, index) => (
             <div 
               key={index} 
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between" 
             >
               <div className="p-6">
                 <div className="flex items-center mb-4">
