@@ -17,17 +17,16 @@ const Email = () => {
         <title>Email Marketing | Adonomics Technologies</title>
         <meta
           name="keywords"
-          content="Email Marketing, Email Campaigns, Digital Marketing, Adonomics Technologies"
+          content="Email Marketing, Email Campaigns, Digital Marketing, Adonomics Technologies,digital marketing
+marketing services, email marketing platforms,email marketing services, digital marketing agency, digital marketing company,
+digital marketing services, Bihar, Patna"
         />
         <meta name="author" content="Adonomics Technologies" />
         <meta
           name="description"
           content="Unlock the power of Email Marketing with Adonomics Technologies. Drive traffic, generate leads, and boost sales through targeted email campaigns."
         />
-        <link
-          rel="canonical"
-          href="https://adonomicstechnologies.com/email"
-        />
+        <link rel="canonical" href="https://adonomicstechnologies.com/email" />
         <meta
           property="og:title"
           content="Email Marketing | Adonomics Technologies"

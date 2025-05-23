@@ -41,7 +41,10 @@ const Navbar = () => {
             { name: "Instagram Marketing", link: "/insta" },
             { name: "LinkedIn Marketing", link: "/linkedin" },
             { name: "Twitter Marketing", link: "/twitter" },
-            { name: "Social Media Management", link: "/social-media-management" },
+            {
+              name: "Social Media Management",
+              link: "/social-media-management",
+            },
             { name: "Influencer Marketing", link: "/influencer-marketing" },
           ],
         },
@@ -82,16 +85,24 @@ const Navbar = () => {
             { name: "ROI Analysis", link: "/roi-analysis" },
           ],
         },
-        
-        { name: "Development", link: "/development",
+
+        {
+          name: "Development",
+          link: "/development",
           subItems: [
             { name: "UI/UX Design", link: "/uiux" },
             { name: "App Development", link: "/app-development" },
           ],
         },
-        { name: "Branding & Identity", link: "/branding" },
-        { name: "Email Marketing", link: "/email" },
-        { name: "Paid Marketing", link: "/paid-marketing" },
+        {
+          name: "Other Services",
+          link: "/others",
+          subItems: [
+            { name: "Branding & Identity", link: "/branding" },
+            { name: "Email Marketing", link: "/email" },
+            { name: "Paid Marketing", link: "/paid-marketing" },
+          ],
+        },
       ],
     },
     { name: "About Us", link: "/about" },
@@ -166,7 +177,10 @@ const Navbar = () => {
               >
                 <FaInstagram />
               </a>
-              <a href="https://www.linkedin.com/company/adonomicstechnologies/" className="hover:text-emerald-300 transition">
+              <a
+                href="https://www.linkedin.com/company/adonomicstechnologies/"
+                className="hover:text-emerald-300 transition"
+              >
                 <FaLinkedinIn />
               </a>
             </div>
@@ -242,29 +256,34 @@ const Navbar = () => {
                               <FaChevronRight
                                 size={12}
                                 className={`text-gray-400 ${
-                                  activeSubDropdown === dIndex ? "rotate-90" : ""
+                                  activeSubDropdown === dIndex
+                                    ? "rotate-90"
+                                    : ""
                                 }`}
                               />
                             )}
                           </div>
 
                           {/* Desktop Sub-Dropdown */}
-                          {dropdownItem.subItems && activeSubDropdown === dIndex && (
-                            <div
-                              className="absolute left-full top-0 ml-0.45 w-64 bg-white shadow-lg rounded-lg py-2 z-50"
-                              onMouseLeave={() => setActiveSubDropdown(null)}
-                            >
-                              {dropdownItem.subItems.map((subItem, sIndex) => (
-                                <Link
-                                  key={sIndex}
-                                  to={subItem.link}
-                                  className="block px-4 py-2 text-gray-800 hover:bg-emerald-50 hover:text-emerald-600"
-                                >
-                                  {subItem.name}
-                                </Link>
-                              ))}
-                            </div>
-                          )}
+                          {dropdownItem.subItems &&
+                            activeSubDropdown === dIndex && (
+                              <div
+                                className="absolute left-full top-0 ml-0.45 w-64 bg-white shadow-lg rounded-lg py-2 z-50"
+                                onMouseLeave={() => setActiveSubDropdown(null)}
+                              >
+                                {dropdownItem.subItems.map(
+                                  (subItem, sIndex) => (
+                                    <Link
+                                      key={sIndex}
+                                      to={subItem.link}
+                                      className="block px-4 py-2 text-gray-800 hover:bg-emerald-50 hover:text-emerald-600"
+                                    >
+                                      {subItem.name}
+                                    </Link>
+                                  )
+                                )}
+                              </div>
+                            )}
                         </div>
                       ))}
                     </div>
@@ -350,27 +369,32 @@ const Navbar = () => {
                                   <FaChevronRight
                                     size={12}
                                     className={`transition-transform ${
-                                      activeSubDropdown === dIndex ? "rotate-90" : ""
+                                      activeSubDropdown === dIndex
+                                        ? "rotate-90"
+                                        : ""
                                     }`}
                                   />
                                 )}
                               </div>
 
                               {/* Mobile Sub-Dropdown */}
-                              {dropdownItem.subItems && activeSubDropdown === dIndex && (
-                                <div className="ml-4 space-y-2">
-                                  {dropdownItem.subItems.map((subItem, sIndex) => (
-                                    <Link
-                                      key={sIndex}
-                                      to={subItem.link}
-                                      className="block py-2 text-gray-600 hover:text-emerald-600"
-                                      onClick={() => setIsMenuOpen(false)}
-                                    >
-                                      {subItem.name}
-                                    </Link>
-                                  ))}
-                                </div>
-                              )}
+                              {dropdownItem.subItems &&
+                                activeSubDropdown === dIndex && (
+                                  <div className="ml-4 space-y-2">
+                                    {dropdownItem.subItems.map(
+                                      (subItem, sIndex) => (
+                                        <Link
+                                          key={sIndex}
+                                          to={subItem.link}
+                                          className="block py-2 text-gray-600 hover:text-emerald-600"
+                                          onClick={() => setIsMenuOpen(false)}
+                                        >
+                                          {subItem.name}
+                                        </Link>
+                                      )
+                                    )}
+                                  </div>
+                                )}
                             </div>
                           ))}
                         </div>

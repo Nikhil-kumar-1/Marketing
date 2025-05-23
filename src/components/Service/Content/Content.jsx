@@ -1,9 +1,12 @@
 import React from "react";
+import { FaPenFancy, FaBookOpen, FaFeatherAlt } from "react-icons/fa";
 import {
-  FaPenFancy,
-  FaBookOpen,
-  FaFeatherAlt,
-  FaBullhorn,
+  FaBlog,
+  FaVideo,
+  FaPodcast,
+  FaChartBar,
+  FaShareAlt,
+  FaFileAlt,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
@@ -30,7 +33,7 @@ digital marketing services"
         <meta name="author" content="Adonomics Technologies" />
         <meta
           name="description"
-          content="Unlock the power of Content Marketing with Adonomics Technologies. Drive traffic, generate leads, and boost sales through targeted content strategies."
+          content="Discover why content marketing works, how to do it right and how to build trust and visibility without pushing sales. Read to find out more"
         />
         <link
           rel="canonical"
@@ -96,131 +99,153 @@ digital marketing services"
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 py-20 relative z-10">
-        <div className="grid md:grid-cols-2 gap-2 items-center">
-          <img
-            src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="What is Content Marketing"
-            className="rounded-xl shadow-lg md:h-[400px] object-cover mb-6 md:mb-0"
-          />
-          <div>
-            <h2 className="text-3xl font-bold mb-4">
-              What is Content Marketing?
-            </h2>
-            <p className="text-lg text-gray-700 leading-7">
-              Content marketing is the strategic creation and sharing of
-              valuable, relevant, and consistent content to attract and retain a
-              clearly defined audience — and, ultimately, to drive profitable
-              action.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-gradient-to-br from-purple-100 to-purple-50 py-20 px-6 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-purple-900 mb-10 text-center">
-            Why Content Marketing?
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-gray-800 text-lg">
-            <div className="bg-white rounded-lg shadow p-6 hover:shadow-xl transition">
-              <FaFeatherAlt className="text-3xl mb-4 text-purple-700" />
-              <h4 className="font-bold mb-2">SEO Boost</h4>
-              <p>Publish keyword-rich content that ranks and drives traffic.</p>
-            </div>
-            <div className="bg-white rounded-lg shadow p-6 hover:shadow-xl transition">
-              <FaBookOpen className="text-3xl mb-4 text-purple-700" />
-              <h4 className="font-bold mb-2">Educate & Engage</h4>
-              <p>Deliver real value and insights to your audience.</p>
-            </div>
-            <div className="bg-white rounded-lg shadow p-6 hover:shadow-xl transition">
-              <FaBullhorn className="text-3xl mb-4 text-purple-700" />
-              <h4 className="font-bold mb-2">Brand Authority</h4>
-              <p>Position your brand as a leader in your industry.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="text-3xl font-bold mb-10 text-purple-900 text-center">
-          Our Content Strategy
-        </h2>
-        <div className="grid md:grid-cols-2 gap-10 text-gray-700 text-lg">
-          <div className="bg-white shadow-lg p-6 rounded-xl hover:shadow-2xl transition">
-            <h3 className="font-semibold text-xl mb-2">
-              🧠 Topic Research & Planning
-            </h3>
-            <p>
-              We align content with search intent, trends, and audience pain
-              points.
-            </p>
-          </div>
-          <div className="bg-white shadow-lg p-6 rounded-xl hover:shadow-2xl transition">
-            <h3 className="font-semibold text-xl mb-2">
-              ✍️ Blog Posts & Articles
-            </h3>
-            <p>Engaging and informative long-form content to build trust.</p>
-          </div>
-          <div className="bg-white shadow-lg p-6 rounded-xl hover:shadow-2xl transition">
-            <h3 className="font-semibold text-xl mb-2">
-              📹 Visual & Video Content
-            </h3>
-            <p>
-              Infographics, explainers, and video reels to amplify your reach.
-            </p>
-          </div>
-          <div className="bg-white shadow-lg p-6 rounded-xl hover:shadow-2xl transition">
-            <h3 className="font-semibold text-xl mb-2">
-              📊 Reporting & Optimization
-            </h3>
-            <p>Track what works and refine content for better performance.</p>
-          </div>
-        </div>
-      </section>
-      {/* FAQ Section */}
-      <section className="mt-24 px-6 max-w-5xl mx-auto">
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center text-purple-800 mb-10"
-          initial="hidden"
-          animate="visible"
-          custom={0}
-          variants={floatAnimation}
+      <section className="px-4 md:px-20 py-16  text-gray-800 ">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          Frequently Asked Questions
-        </motion.h2>
-        <div className="space-y-6">
-          {[
-            {
-              q: "How long does it take to write a blog?",
-              a: "We typically deliver within 2–4 business days depending on length and complexity.",
-            },
-            {
-              q: "Can I request edits after receiving the draft?",
-              a: "Absolutely! We offer unlimited revisions to make sure you're 100% happy.",
-            },
-            {
-              q: "Do you provide images and meta descriptions?",
-              a: "Yes, we can provide royalty-free images and SEO-optimized meta descriptions on request.",
-            },
-            {
-              q: "What industries do you write for?",
-              a: "We cover a wide range including tech, health, lifestyle, education, and finance.",
-            },
-          ].map((item, i) => (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="max-w-6xl mx-auto px-4 py-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-gray-800">
+              Content Marketing: Why It Works and How to Do It Right?
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              {/* Image */}
+              <div className="w-full">
+                <img
+                  src="https://images.pexels.com/photos/7563680/pexels-photo-7563680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  alt="Content Marketing Visual"
+                  className="w-full h-auto rounded-xl shadow-md object-cover"
+                />
+              </div>
+
+              {/* Text Content */}
+              <div className="text-gray-700 text-lg leading-relaxed">
+                <p className="mb-6">
+                  Let’s be real—most of us are done with ads. We skip them, mute
+                  them, block them, ignore them. It’s not that advertising is
+                  dead, but people’s tolerance for being sold to is way lower
+                  than it used to be. So how do you actually get someone to pay
+                  attention to your brand without annoying them?
+                </p>
+                <p>
+                  Simple: you stop selling and start providing value. That’s
+                  what content marketing is all about. It’s not just another
+                  marketing fad. It’s a real, long-term strategy that works
+                  because it focuses on helping people first. Whether it’s
+                  teaching them something, entertaining them, or answering their
+                  questions— content marketing earns attention instead of buying
+                  it.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
             <motion.div
-              key={i}
-              className="bg-white p-6 rounded-xl shadow"
-              initial="hidden"
-              animate="visible"
-              custom={i}
-              variants={floatAnimation}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="max-w-7xl mx-auto"
             >
-              <h4 className="font-semibold text-purple-700 mb-2">{item.q}</h4>
-              <p className="text-gray-700">{item.a}</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-10 text-center">
+                Why Content Marketing Works (When Done Right)?
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                {/* Text Content */}
+                <div className="space-y-5 text-gray-700">
+                  <p className="text-lg leading-relaxed">
+                    Think about it—when was the last time you searched for
+                    something like “how to unclog a drain” or “best productivity
+                    apps”? Did you click an ad? Probably not. You likely found a
+                    blog, a video, or a Reddit thread that gave you what you
+                    needed.
+                  </p>
+                  <p className="text-lg leading-relaxed">
+                    That’s content marketing. It’s not pushy. It doesn’t scream
+                    “buy now.” It says, “Hey, here’s something useful.” And
+                    that’s why it works. Because when you show up in people’s
+                    lives with real answers or fresh ideas, they remember you.
+                    Trust builds naturally. And when they’re ready to buy?
+                    You’re already on their radar—in a good way.
+                  </p>
+                </div>
+
+                {/* Image */}
+                <motion.img
+                  src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Content marketing"
+                  className="w-full rounded-2xl shadow-lg object-cover"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true }}
+                />
+              </div>
             </motion.div>
-          ))}
-        </div>
+
+            <h3 className="text-2xl font-semibold mt-10 mb-4">
+              What Kind of Content Should You Make?
+            </h3>
+            <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 ">
+              <li className="flex items-start gap-3  p-4 rounded-xl shadow shadow-xl transition-shadow duration-300 hover:shadow-2xl shadow-gray-300 hover:scale-105 hover:shadow-gray-400 ">
+                <FaBlog className="text-2xl text-blue-500 w-10 h-10" />
+                <span>
+                  Blog posts – Great for showing up on Google and sharing your
+                  voice and knowledge.
+                </span>
+              </li>
+              <li className="flex items-start gap-3  p-4 rounded-xl shadow shadow-xl transition-shadow duration-300 hover:shadow-2xl shadow-gray-300 hover:scale-105 hover:shadow-gray-400">
+                <FaVideo className="text-2xl text-red-500 w-10 h-10" />
+                <span>
+                  Videos – Ideal for quick how-tos, product demos, or
+                  behind-the-scenes stuff.
+                </span>
+              </li>
+              <li className="flex items-start gap-3  p-4 rounded-xl shadow shadow-xl transition-shadow duration-300 hover:shadow-2xl shadow-gray-300 hover:scale-105 hover:shadow-gray-400">
+                <FaPodcast className="text-2xl text-purple-500 w-10 h-10" />
+                <span>
+                  Podcasts – Awesome if you want to build a loyal following with
+                  deeper, longer-form conversations.
+                </span>
+              </li>
+              <li className="flex items-start gap-3  p-4 rounded-xl shadow shadow-xl transition-shadow duration-300 hover:shadow-2xl shadow-gray-300 hover:scale-105 hover:shadow-gray-400">
+                <FaChartBar className="text-2xl text-green-500 w-10 h-10" />
+                <span>
+                  Infographics – If you’ve got data or complex info, visuals can
+                  make it easier to digest.
+                </span>
+              </li>
+              <li className="flex items-start gap-3  p-4 rounded-xl shadow shadow-xl transition-shadow duration-300 hover:shadow-2xl shadow-gray-300 hover:scale-105 hover:shadow-gray-400">
+                <FaShareAlt className="text-2xl text-cyan-500 w-10 h-10" />
+                <span>
+                  Social media posts – Perfect for staying top-of-mind and
+                  sparking quick engagement.
+                </span>
+              </li>
+              <li className="flex items-start gap-3  p-4 rounded-xl shadow shadow-xl transition-shadow duration-300 hover:shadow-2xl shadow-gray-300 hover:scale-105 hover:shadow-gray-400">
+                <FaFileAlt className="text-2xl text-yellow-500 w-10 h-10" />
+                <span>
+                  Ebooks or whitepapers – Best for when you want to really dive
+                  deep into a subject and build authority.
+                </span>
+              </li>
+            </ul>
+          </motion.div>
+        </motion.div>
       </section>
 
       <section
