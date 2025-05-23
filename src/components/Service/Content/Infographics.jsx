@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
+import {Helmet} from 'react-helmet';
 const fadeIn = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 0.8 } }
@@ -14,6 +14,20 @@ const slideUp = {
 const InfographicsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <Helmet>
+        <title>Infographics | Adonomics Technologies</title>
+        <meta name="description" content="Adonomics Technologies uses infographics to turn complex data into clear, visual stories that drive action and decision-making. Read on now. " />
+        <meta name="keywords" content="Infographics, Data Visualization, Adonomics Technologies   Bihar Patna, Digital Marketing, Digital Marketing Company in Patna " />
+        <meta name="author" content="Adonomics Technologies" />
+        <link rel="canonical" href="https://www.adonomics.com/infographics" />
+        <meta property="og:title" content="Infographics | Adonomics Technologies" />
+        <meta property="og:description" content="Discover how Adonomics Technologies uses infographics to turn complex data into clear, actionable insights." />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" />
+        <meta property="og:url" content="https://www.adonomics.com/infographics" />
+        <meta property="og:type" content="website" />
+        <meta name='robots' content='index, nofollow' />
+
+      </Helmet>
       {/* Hero Section with Overlay Image */}
       <div className="relative bg-gray-900 text-white overflow-hidden h-96 md:h-screen max-h-[800px]">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80 z-10"></div>
