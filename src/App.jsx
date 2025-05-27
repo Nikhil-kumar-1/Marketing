@@ -41,6 +41,7 @@ import PaidMarketingServices from './components/Service/PaidMarketing';
 import UIUX from './components/Service/Development/UIUX';
 import AppDevelopment from './components/Service/Development/AppDevelopment';
 import ServicesPage from './components/Service/Service';
+import Web from './components/Service/Development/Web';
 
 const App = () => {
   return (
@@ -76,6 +77,7 @@ const App = () => {
         <Route path="/portfolio" element={<Portfolio/>} />
         <Route path='/social-media-management'  element={<SocialMediaManagement />} />
         <Route path='/development'  element={<Development />} />
+        <Route path='/web-development'  element={<Web />} />
         <Route path='/uiux'  element={<UIUX/>} />
         <Route path='/app-development'  element={<AppDevelopment />} />
          <Route path='/influencer-marketing'  element={<InfluencerMarketing />} />

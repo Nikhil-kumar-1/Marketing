@@ -92,6 +92,7 @@ const Navbar = () => {
           subItems: [
             { name: "UI/UX Design", link: "/uiux" },
             { name: "App Development", link: "/app-development" },
+            { name: "Web Development", link: "/web-development" },
           ],
         },
         {
