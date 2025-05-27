@@ -91,7 +91,7 @@ const AboutUs = () => {
           name="description"
           content="Welcome to Adonomics Technologies, your partner in digital excellence. We specialize in web development, digital marketing, and data analytics."
         />
-        <link rel="canonical" href="/about" />
+        <link rel="canonical" href="https://adonomicstechnologies.com/about" />
         <meta property="og:title" content="About Us | Adonomics Technologies" />
         <meta
           property="og:description"

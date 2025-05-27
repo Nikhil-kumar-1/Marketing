@@ -41,6 +41,8 @@ import PaidMarketingServices from './components/Service/PaidMarketing';
 import UIUX from './components/Service/Development/UIUX';
 import AppDevelopment from './components/Service/Development/AppDevelopment';
 import ServicesPage from './components/Service/Service';
+import AISEO from './components/Service/SEO/AISEO';
+import LocalSeo from './components/Service/SEO/LocalSeo';
 
 const App = () => {
   return (
@@ -54,6 +56,8 @@ const App = () => {
         <Route path="/onpage" element={<OnPageSEO />} />
         <Route path="/offpage" element={<OffPageSEO />} />
         <Route path="/technical" element={<TechnicalSEO />} />
+        <Route path="/ai-seo" element={<AISEO />} />
+        <Route path="/local-seo" element={<LocalSeo />} />
         <Route path="/seo" element={<SeoServicesPage />} />
         <Route path="/smm" element={<SMM />} />
         <Route path='/fb' element={<Fb />} />
