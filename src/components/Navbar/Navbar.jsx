@@ -56,6 +56,8 @@ const Navbar = () => {
             { name: "Off-Page SEO", link: "/offpage" },
             { name: "Technical SEO", link: "/technical" },
             { name: "SEO Audits", link: "/seo-audits" },
+            {name: "Local SEO", link: "/local-seo" },
+            {name:"AI SEO", link: "/ai-seo" },
           ],
         },
         {
