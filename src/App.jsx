@@ -43,7 +43,7 @@ import AppDevelopment from './components/Service/Development/AppDevelopment';
 import ServicesPage from './components/Service/Service';
 
 import AISEO from './components/Service/SEO/AISEO';
-import LocalSeo from './components/Service/SEO/LocalSeo;
+import LocalSeo from './components/Service/SEO/LocalSeo';
 import Web from './components/Service/Development/Web';
 
 
