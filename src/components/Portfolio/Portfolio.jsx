@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiCheck } from 'react-icons/fi';
 import { FaClinicMedical, FaChalkboardTeacher, FaShoppingBag, FaHome, FaUtensils, FaCar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Portfolio = () => {
   const categories = [
@@ -45,45 +46,57 @@ const Portfolio = () => {
   const portfolioItems = [
     {
       category: "Healthcare",
-      title: "Dr. Sharma's Cardiology Clinic",
-      description: "Complete digital marketing solution for a leading heart specialist in Delhi",
+      title: "Dr. Jitendra Mohan Jha",
+      description: "Complete digital marketing solution for a leading heart specialist.",
       results: ["300% increase in appointments", "25% reduction in CAC", "Top 3 rankings for 15+ keywords"],
-      image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+      image: "dr.webp",
+      link: "https://drjitendramohanjha.com"
     },
     {
       category: "Education",
-      title: "Elite IAS Academy",
-      description: "Performance marketing for India's premier civil services coaching institute",
+      title: "True Dreams Classes",
+      description: "Handling consultations and admissions for a leading educational institute.",
       results: ["2.5x increase in enquiries", "40% lower cost per lead", "200+ student admissions"],
-      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+      image: "truedreams.webp",
+      link: "https://truedreamsclasses.com"
     },
-    {
-      category: "E-Commerce",
-      title: "UrbanCraft Home Decor",
-      description: "End-to-end ecommerce solution for handmade home furnishings",
-      results: ["5x revenue growth in 6 months", "1.2M+ monthly visitors", "28% repeat customer rate"],
-      image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-    },
-    {
-      category: "Real Estate",
-      title: "Prestige Developers",
-      description: "Digital strategy for luxury apartment pre-launch campaign",
-      results: ["90% unit sold in pre-booking", "1.4M video views", "2,500+ qualified leads"],
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-    },
-    {
-      category: "Restaurants",
-      title: "The Spice Route",
-      description: "Social media marketing for fine-dining Indian restaurant chain",
-      results: ["4.9/5 average rating", "80% table reservation rate", "3x Instagram engagement"],
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-    },
+    // {
+    //   category: "E-Commerce",
+    //   title: "UrbanCraft Home Decor",
+    //   description: "End-to-end ecommerce solution for handmade home furnishings",
+    //   results: ["5x revenue growth in 6 months", "1.2M+ monthly visitors", "28% repeat customer rate"],
+    //   image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    // },
+    // {
+    //   category: "Real Estate",
+    //   title: "Prestige Developers",
+    //   description: "Digital strategy for luxury apartment pre-launch campaign",
+    //   results: ["90% unit sold in pre-booking", "1.4M video views", "2,500+ qualified leads"],
+    //   image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    // },
+    // {
+    //   category: "Restaurants",
+    //   title: "The Spice Route",
+    //   description: "Social media marketing for fine-dining Indian restaurant chain",
+    //   results: ["4.9/5 average rating", "80% table reservation rate", "3x Instagram engagement"],
+    //   image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    // },
     {
       category: "Automotive",
-      title: "AutoNation Motors",
+      title: "City Mechanics",
       description: "Lead generation campaign for luxury car dealership",
       results: ["120 test drives/month", "35% conversion rate", "1.8M ad impressions"],
-      image: "https://images.unsplash.com/photo-1494905998402-395d579af36f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+      image: "cityM.webp",
+      link:"https://citymechanics.in"
+
+    },
+    {
+      category:"Events",
+      title:"Golden Storm",
+      description:"Digital strategy for a leading event management company",
+      results:["50% increase in event bookings", "30% reduction in CAC", "Top 3 rankings for 10+ keywords"],
+      image:"golden.webp",
+      link:"https://goldenstorm.in/"
     }
   ];
 
@@ -177,7 +190,7 @@ const Portfolio = () => {
                   <img 
                     src={item.image} 
                     alt={item.title} 
-                    className="w-full h-full object-cover"
+                    className="h-full w-full object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
                     <span className="inline-block bg-blue-600 text-white px-3 py-1 rounded-full text-sm">
@@ -197,12 +210,14 @@ const Portfolio = () => {
                       </li>
                     ))}
                   </ul>
+                  <Link to={item.link}>
                   <motion.button
                     whileHover={{ x: 5 }}
                     className="inline-flex items-center text-blue-600 font-medium"
-                  >
-                    View case study <FiArrowRight className="ml-2" />
+                    >
+                    View Website <FiArrowRight className="ml-2" />
                   </motion.button>
+                  </Link>
                 </div>
               </motion.div>
             ))}

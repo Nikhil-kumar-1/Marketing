@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiExternalLink, FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Gallery = () => {
   const [selectedId, setSelectedId] = useState(null);
@@ -8,51 +9,39 @@ const Gallery = () => {
   const projects = [
     {
       id: 1,
-      title: "Food Ordering App",
-      description: "A seamless mobile experience for restaurant discovery and food delivery",
-      image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-      category: "Mobile App",
-      tags: ["UI/UX", "React Native", "Food Tech"]
+      title: "Dr Jitendra Mohan Jha",
+      description: "Complete digital marketing solution for a leading heart specialist.",
+      image: "dr.webp",
+      category: "Web App",
+      tags: ["UI/UX", "React", "Tailwind CSS"],
+      link: "https://drjitendramohanjha.com"
     },
     {
       id: 2,
-      title: "Safety Consultation",
-      description: "Enterprise platform for workplace safety management and compliance",
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
-      category: "Web Design",
-      tags: ["Dashboard", "B2B", "Analytics"]
+      title: "City Mechanics",
+      description: "Lead generation campaign for luxury car dealership",
+      image: "cityM.webp",
+      category: "Website",
+      tags: ["Website", "SEO", "Digital Marketing"],
+      link: "https://citymechanics.in"
     },
     {
       id: 3,
-      title: "Ark Homes",
-      description: "Modern real estate platform with virtual property tours",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      title: "True Dreams Classes",
+      description: "Online tutoring platform for students of all ages",
+      image: "truedreams.webp",
       category: "Website",
-      tags: ["Real Estate", "3D Tours", "Property Management"]
+      tags: ["Education", "Online Learning", "LMS"],
+      link: "https://truedreamsclasses.com"
     },
     {
       id: 4,
-      title: "Member Benefits",
-      description: "Loyalty program with personalized offers and rewards",
-      image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      title: "Golden Storm",
+      description: "Digital strategy for a leading event management company",
+      image: "golden.webp",
       category: "Marketing",
-      tags: ["CRM", "Loyalty", "Personalization"]
-    },
-    {
-      id: 5,
-      title: "KinnectD",
-      description: "Social networking platform for professional communities",
-      image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
-      category: "Branding",
-      tags: ["Social Media", "Networking", "Community"]
-    },
-    {
-      id: 6,
-      title: "Cuero Health",
-      description: "Telemedicine platform with AI-powered diagnostics",
-      image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      category: "Healthcare",
-      tags: ["Telehealth", "AI", "Medical"]
+      tags: ["Digital Marketing", "SEO", "PPC"],
+      link: "https://goldenstorm.in"
     },
   ];
 
@@ -68,7 +57,7 @@ const Gallery = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {projects.map((project) => (
             <ProjectCard 
               key={project.id} 
@@ -117,7 +106,7 @@ const ProjectCard = ({ project, onClick }) => {
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
           loading="lazy"
         />
       </div>
@@ -205,10 +194,12 @@ const ProjectModal = ({ project, onClose, onNext, onPrev }) => {
               Next
               <FiChevronRight className="ml-1" />
             </button>
-             <button className=" bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-full flex items-center">
+            <Link to={project.link}>
+             <button className=" bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-full flex items-center cursor-pointer">
               <FiExternalLink className="mr-2" />
               Visit Project
             </button>
+            </Link>
           </div>
         </div>
       </motion.div>
