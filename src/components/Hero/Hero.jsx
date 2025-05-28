@@ -268,7 +268,7 @@ function Hero() {
         >
           <p className="text-center text-emerald-200 mb-6">Trusted by innovative businesses worldwide</p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-80 hover:opacity-100 transition-opacity">
-            {["BansalClasses", "CityMechanics", "GoldenStorm", "CAOnlineServices", "TrueDreamsClasses"].map((company, i) => (
+            {["CityMechanics", "GoldenStorm", "CAOnlineServices", "TrueDreamsClasses"].map((company, i) => (
               <motion.div
                 key={i}
                 className="text-white text-xl font-bold"
