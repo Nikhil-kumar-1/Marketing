@@ -29,12 +29,12 @@ const AboutSection = () => {
 
   const stats = [
     {
-      value: "10+",
+      value: "1+",
       label: "Years Experience",
       icon: <FaAward className="text-emerald-500 text-2xl" />,
     },
     {
-      value: "500+",
+      value: "100+",
       label: "Clients Worldwide",
       icon: <FaUsers className="text-emerald-500 text-2xl" />,
     },
@@ -44,7 +44,7 @@ const AboutSection = () => {
       icon: <FaChartLine className="text-emerald-500 text-2xl" />,
     },
     {
-      value: "50+",
+      value: "10+",
       label: "Awards Won",
       icon: <FaLightbulb className="text-emerald-500 text-2xl" />,
     },
@@ -89,7 +89,7 @@ const AboutSection = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900">
-                    500+ Happy Clients
+                    100+ Happy Clients
                   </h3>
                   <p className="text-gray-600 text-sm mt-1">
                     Trusted by businesses worldwide

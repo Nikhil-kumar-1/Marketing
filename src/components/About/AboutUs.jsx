@@ -251,12 +251,12 @@ const AboutUs = () => {
             >
               {[
                 {
-                  value: "200+",
+                  value: "100+",
                   label: "Successful Projects",
                   color: "green-600",
                 },
-                { value: "98%", label: "Client Retention", color: "green-700" },
-                { value: "3.2x", label: "Average ROI", color: "green-600" },
+                { value: "95%", label: "Client Retention", color: "green-700" },
+                { value: "1.5x", label: "Average ROI", color: "green-600" },
                 {
                   value: "24/7",
                   label: "Dedicated Support",

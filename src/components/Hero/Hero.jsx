@@ -206,8 +206,8 @@ function Hero() {
           transition={{ delay: 0.3 }}
         >
           {[
-            { value: "300%+", label: "Average ROI Increase", icon: "📈" },
-            { value: "500+", label: "Satisfied Clients", icon: "😊" },
+            { value: "150%+", label: "Average ROI Increase", icon: "📈" },
+            { value: "100+", label: "Satisfied Clients", icon: "😊" },
             { value: "24/7", label: "Campaign Monitoring", icon: "👁️" },
             { value: "1M+", label: "Leads Generated", icon: "🔥" }
           ].map((metric, index) => (
