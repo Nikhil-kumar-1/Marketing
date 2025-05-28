@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { FiCheck } from "react-icons/fi";
 import { FaChartLine, FaUsers, FaLightbulb, FaAward } from "react-icons/fa";
-import { Helmet } from "react-helmet";
+
 const AboutSection = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -52,31 +52,6 @@ const AboutSection = () => {
 
   return (
     <section className=" py-20 bg-gradient-to-br from-white to-gray-50 overflow-hidden">
-      <Helmet>
-        <title>About Us | Adonomics Technologies</title>
-        <meta
-          name="keywords"
-          content="Adonomics Technologies, Adonomics, digital marketing agency, website development, digital marketing services in Patna, Patna, digital marketing, SEO, social media marketing, PPC, content marketing, web development"
-        />
-        <meta name="author" content="Adonomics Technologies" />
-        <meta
-          name="description"
-          content="Welcome to Adonomics Technologies, your partner in digital excellence. We specialize in web development, digital marketing, and data analytics."
-        />
-        <link rel="canonical" href="/about" />
-        <meta property="og:title" content="About Us | Adonomics Technologies" />
-        <meta
-          property="og:description"
-          content="Learn more about Adonomics Technologies, a leading digital marketing agency specializing in web development, SEO, and data analytics."
-        />
-
-        <meta
-          property="og:url"
-          content="https://adonomicstechnologies.com/about"
-        />
-        <meta property="og:type" content="website" />
-        <meta name="robots" content="index, nofollow" />
-      </Helmet>
       <div className="container mx-auto px-4 min-h-screen">
         <motion.div
           initial="hidden"
@@ -144,7 +119,7 @@ const AboutSection = () => {
               variants={itemVariants}
               className="text-lg text-gray-600 mb-8"
             >
-              Founded in 2012, we've grown from a small team of marketing
+              Founded in 2025, we've grown from a small team of marketing
               enthusiasts to a full-service digital agency helping businesses
               transform their online presence. Our data-driven approach ensures
               measurable results for every client.

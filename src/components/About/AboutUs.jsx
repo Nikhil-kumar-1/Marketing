@@ -161,6 +161,7 @@ const AboutUs = () => {
             className="absolute -bottom-20 left-0 right-0 h-40 bg-gradient-to-t from-white to-transparent"
           ></motion.div>
         </section>
+        
 
         {/* Mission Section */}
         <section className="py-20 bg-white">
