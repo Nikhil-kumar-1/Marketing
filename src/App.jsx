@@ -45,6 +45,8 @@ import ServicesPage from './components/Service/Service';
 import AISEO from './components/Service/SEO/AISEO';
 import LocalSeo from './components/Service/SEO/LocalSeo';
 import Web from './components/Service/Development/Web';
+import QuoteWizard from './components/Quote';
+import StrategyPage from './components/Strategy';
 
 
 const App = () => {
@@ -94,6 +96,8 @@ const App = () => {
          <Route path='/terms'  element={<Terms />} />
          <Route path='/paid-marketing'  element={<PaidMarketingServices />} />
          <Route path='/services'  element={<ServicesPage />} />
+         <Route path="/quote" element={<QuoteWizard />} />
+         <Route path="/strategy" element={<StrategyPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

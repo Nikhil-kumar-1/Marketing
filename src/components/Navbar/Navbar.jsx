@@ -297,11 +297,9 @@ const Navbar = () => {
             </ul>
 
             <div className="flex items-center space-x-4 ml-6">
-              <button className="p-2 text-gray-600 hover:text-emerald-600 transition">
-                <FaSearch />
-              </button>
-              <Link to="/contact">
-                <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-full font-medium transition shadow-lg shadow-emerald-600/20">
+              
+              <Link to="/quote">
+                <button className="cursor-pointer bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-full font-medium transition shadow-lg shadow-emerald-600/20">
                   Get a Quote
                 </button>
               </Link>

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 function Hero() {
   const [isMounted, setIsMounted] = useState(false);
 
@@ -239,7 +239,7 @@ function Hero() {
             <div className="w-full border-t-2 border-dashed border-emerald-300 border-opacity-30"></div>
           </div>
           <div className="relative flex justify-center">
-            <motion.span 
+           <Link to="/strategy"> <motion.span 
               className="px-6 py-2 bg-emerald-600 text-white rounded-full flex items-center shadow-lg"
               animate={{
                 scale: [1, 1.1, 1],
@@ -252,11 +252,12 @@ function Hero() {
                 repeatType: "mirror"
               }}
             >
+              
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
               Personalized Strategy for Every Business
-            </motion.span>
+            </motion.span></Link>
           </div>
         </motion.div>
 

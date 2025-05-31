@@ -189,7 +189,7 @@ const ContactPage = () => {
                 </p>
                 <div className="flex space-x-4">
                   <a
-                    href="tel:+911234567890"
+                    href="tel:0612-4150537"
                     className="bg-white text-emerald-600 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition inline-block"
                   >
                     Schedule Call

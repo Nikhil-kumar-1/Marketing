@@ -1,16 +1,16 @@
-import { motion, useAnimation } from 'framer-motion';
-import { FaLinkedin, FaTwitter, FaArrowDown, FaEnvelope } from 'react-icons/fa';
-import { useEffect } from 'react';
+import { motion, useAnimation } from "framer-motion";
+import { FaLinkedin, FaTwitter, FaArrowDown, FaEnvelope } from "react-icons/fa";
+import { useEffect } from "react";
 
 const Team = () => {
-    const controls = useAnimation();
-    // Hero section animation
+  const controls = useAnimation();
+  // Hero section animation
   useEffect(() => {
     const sequence = async () => {
       await controls.start({ opacity: 1, y: 0 });
-      await controls.start({ 
+      await controls.start({
         scale: [1, 1.05, 1],
-        transition: { repeat: Infinity, duration: 3 } 
+        transition: { repeat: Infinity, duration: 3 },
       });
     };
     sequence();
@@ -22,9 +22,9 @@ const Team = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
+        delayChildren: 0.3,
+      },
+    },
   };
 
   const item = {
@@ -34,9 +34,9 @@ const Team = () => {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: "easeInOut"
-      }
-    }
+        ease: "easeInOut",
+      },
+    },
   };
 
   const directors = [
@@ -44,129 +44,129 @@ const Team = () => {
       name: "Aditya Singh",
       role: "Director of Operations",
       bio: "10+ years in digital strategy and business scaling",
-      img: "/team/director1.jpg",
+      img: "Aditya.png",
       social: {
         linkedin: "#",
         twitter: "#",
-        email: "aditya@adonomics.com"
-      }
+        email: "aditya@adonomics.com",
+      },
     },
     {
       name: "Prince Dwivedi",
       role: "Director of Finance",
       bio: "Financial strategist specializing in tech startups",
-      img: "/team/director2.jpg",
+      img: "Prince.png",
       social: {
         linkedin: "#",
         twitter: "#",
-        email: "prince@adonomics.com"
-      }
+        email: "prince@adonomics.com",
+      },
     },
     {
       name: "Vidya Niwas",
       role: "Director of Administration",
       bio: "Operations expert focused on process optimization",
-      img: "/team/director3.jpg",
+      img: "Vidya.png",
       social: {
         linkedin: "#",
         twitter: "#",
-        email: "vidya@adonomics.com"
-      }
+        email: "vidya@adonomics.com",
+      },
     },
     {
       name: "Avinash Singh",
       role: "Director of Business Development",
       bio: "Partnership specialist with global network",
-      img: "/team/director4.jpg",
+      img: "Avinash.png",
       social: {
         linkedin: "#",
         twitter: "#",
-        email: "avinash@adonomics.com"
-      }
-    }
+        email: "avinash@adonomics.com",
+      },
+    },
   ];
 
   const teamMembers = [
-  {
-    name: "Rahul Kumar",
-    role: "Graphic Designer",
-    expertise: "Figma | Photoshop | Illustrator",
-    img: "https://images.unsplash.com/photo-1574722772849-7b249c18a2fd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGJveXN8ZW58MHx8MHx8fDA%3D"
-  },
-  {
-    name: "Sakshi Thakur",
-    role: "SEO Optimization Specialist",
-    expertise: "SEO | PPC | Google Analytics",
-    img: "https://images.unsplash.com/photo-1631947430066-48c30d57b943?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2lybHxlbnwwfHwwfHx8MA%3D%3D"
-  },
-  {
-    name: "Nikhil Kumar",
-    role: "Full Stack Developer",
-    expertise: "React | Node.js | MongoDB",
-    img: "https://images.unsplash.com/photo-1592046285097-6cdf4daf0d69?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Ym95c3xlbnwwfHwwfHx8MA%3D%3D"
-  },
-  {
-    name: "Ankur",
-    role: "Full Stack Developer",
-    expertise: "React | Node.js | MongoDB",
-    img: "https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Ym95c3xlbnwwfHwwfHx8MA%3D%3D"
-  },
-  {
-    name: "Sumit Kumar Singh",
-    role: "Social Media Manager",
-    expertise: "Content Strategy | Engagement | Analytics",
-    img: "https://images.unsplash.com/photo-1546512565-39d4dc75e556?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJveXN8ZW58MHx8MHx8fDA%3D"
-  },
-  {
-    name: "Satyam Kumar",
-    role: "Graphic Designer",
-    expertise: "Figma | Photoshop | Illustrator",
-    img: "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Ym95fGVufDB8fDB8fHww"
-  }
-];
-
+    {
+      name: "Rahul Kumar",
+      role: "Graphic Designer",
+      expertise: "Figma | Photoshop | Illustrator",
+      icon: "R",
+    },
+    {
+      name: "Sakshi Thakur",
+      role: "SEO Optimization Specialist",
+      expertise: "SEO | PPC | Google Analytics",
+      icon: "S",
+    },
+    {
+      name: "Nikhil Kumar",
+      role: "Full Stack Developer",
+      expertise: "React | Node.js | MongoDB",
+      icon: "N",
+    },
+    {
+      name: "Ankur",
+      role: "Full Stack Developer",
+      expertise: "React | Node.js | MongoDB",
+      icon: "A",
+    //    img: "https://images.unsplash.com/photo-1574722772849-7b249c18a2fd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGJveXN8ZW58MHx8MHx8fDA%3D"
+   },
+    {
+      name: "Sumit Kumar Singh",
+      role: "Social Media Manager",
+      expertise: "Content Strategy | Engagement | Analytics",
+      icon: "S",
+    },
+    {
+      name: "Satyam Kumar",
+      role: "Graphic Designer",
+      expertise: "Figma | Photoshop | Illustrator",
+      icon: "S",
+    },
+  ];
 
   return (
     <div className="bg-white">
-       {/* Hero Section */}
+      {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <motion.div 
+          <motion.div
             className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-emerald-200 blur-3xl opacity-30"
             animate={{
               scale: [1, 1.2, 1],
               x: [-50, 50, -50],
-              y: [0, 100, 0]
+              y: [0, 100, 0],
             }}
             transition={{
               duration: 15,
               repeat: Infinity,
-              repeatType: 'reverse',
-              ease: "easeInOut"
+              repeatType: "reverse",
+              ease: "easeInOut",
             }}
           />
-          <motion.div 
+          <motion.div
             className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-teal-200 blur-3xl opacity-30"
             animate={{
               scale: [1, 1.3, 1],
               x: [0, -100, 0],
-              y: [0, -80, 0]
+              y: [0, -80, 0],
             }}
             transition={{
               duration: 20,
               repeat: Infinity,
-              repeatType: 'reverse',
-              ease: "easeInOut"
+              repeatType: "reverse",
+              ease: "easeInOut",
             }}
           />
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={controls}
           className="relative z-10 text-center px-4"
         >
-          <motion.div 
+          <motion.div
             className="inline-block mb-6"
             animate={{
               rotate: [0, 10, -10, 0],
@@ -174,12 +174,12 @@ const Team = () => {
             transition={{
               duration: 5,
               repeat: Infinity,
-              repeatType: 'reverse'
+              repeatType: "reverse",
             }}
           >
             <div className="text-emerald-500 text-6xl mb-4">👋</div>
           </motion.div>
-          <motion.h1 
+          <motion.h1
             className="text-5xl md:text-7xl font-bold text-gray-900 mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -187,13 +187,14 @@ const Team = () => {
           >
             Meet Our <span className="text-emerald-600">Team</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            The brilliant minds and creative souls who make the magic happen every day
+            The brilliant minds and creative souls who make the magic happen
+            every day
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -201,7 +202,7 @@ const Team = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex justify-center"
           >
-            <motion.a 
+            <motion.a
               href="#team-section"
               className="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500 text-white animate-bounce"
               whileHover={{ scale: 1.1, backgroundColor: "#059669" }}
@@ -212,7 +213,6 @@ const Team = () => {
           </motion.div>
         </motion.div>
       </section>
-
 
       {/* Leadership Section */}
       <section className="py-20 bg-white">
@@ -257,25 +257,27 @@ const Team = () => {
                   </div>
                 </div>
                 <div className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-gray-900">{director.name}</h3>
+                  <h3 className="text-xl font-bold text-gray-900">
+                    {director.name}
+                  </h3>
                   <p className="text-green-600 mb-4">{director.role}</p>
                   <div className="flex justify-center space-x-4">
-                    <a 
-                      href={director.social.linkedin} 
+                    <a
+                      href={director.social.linkedin}
                       className="text-gray-400 hover:text-green-600 transition-colors"
                       aria-label={`${director.name} LinkedIn`}
                     >
                       <FaLinkedin className="w-5 h-5" />
                     </a>
-                    <a 
-                      href={`https://twitter.com/${director.social.twitter}`} 
+                    <a
+                      href={`https://twitter.com/${director.social.twitter}`}
                       className="text-gray-400 hover:text-green-600 transition-colors"
                       aria-label={`${director.name} Twitter`}
                     >
                       <FaTwitter className="w-5 h-5" />
                     </a>
-                    <a 
-                      href={`mailto:${director.social.email}`} 
+                    <a
+                      href={`mailto:${director.social.email}`}
                       className="text-gray-400 hover:text-green-600 transition-colors"
                       aria-label={`Email ${director.name}`}
                     >
@@ -321,16 +323,29 @@ const Team = () => {
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
                 whileHover={{ scale: 1.02 }}
               >
+                <div className="h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+                  <div className="w-32 h-32 rounded-full bg-indigo-600 flex items-center justify-center text-white text-4xl font-bold transition-transform duration-500 hover:scale-110 hover:bg-indigo-700">
+                    {member.icon}
+                  </div>
+                </div>
+
+                {/* For image
                 <div className="h-48 bg-gray-100 overflow-hidden">
                   <img
                     src={member.img}
                     alt={member.name}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />
-                </div>
+                </div> */}
+
+
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-green-600 font-medium mb-2">{member.role}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">
+                    {member.name}
+                  </h3>
+                  <p className="text-green-600 font-medium mb-2">
+                    {member.role}
+                  </p>
                   <p className="text-gray-600 text-sm">{member.expertise}</p>
                 </div>
               </motion.div>
@@ -352,15 +367,17 @@ const Team = () => {
               Want to Join Our <span className="text-green-300">Team</span>?
             </h2>
             <p className="text-xl mb-8 max-w-3xl mx-auto">
-              We're always looking for talented individuals to join our growing team.
+              We're always looking for talented individuals to join our growing
+              team.
             </p>
+            <a href="https://www.linkedin.com/company/adonomicstechnologies/">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-white text-green-700 font-bold rounded-lg shadow-lg hover:bg-gray-100 transition-all duration-300"
+              className="cursor-pointer px-8 py-3 bg-white text-green-700 font-bold rounded-lg shadow-lg hover:bg-gray-100 transition-all duration-300"
             >
               View Open Positions
-            </motion.button>
+            </motion.button></a>
           </motion.div>
         </div>
       </section>
